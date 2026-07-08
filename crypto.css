@@ -1,0 +1,131 @@
+.crypto-section {
+  background: #fbf5ec;
+}
+
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.crypto-card,
+.crypto-disclosure {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.crypto-card {
+  padding: 1.25rem;
+}
+
+.crypto-kicker {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--rust);
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.crypto-card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.crypto-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.wallet-address {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border: 1px solid #d8c5aa;
+  border-radius: 8px;
+  color: var(--ink);
+  background: #fffdf8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.wallet-address.is-missing {
+  color: #7a3a24;
+  background: #fff2d9;
+  border-color: rgba(162, 72, 46, 0.35);
+  font-family: inherit;
+  font-weight: 850;
+}
+
+.crypto-amount {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.crypto-amount input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  color: var(--ink);
+  background: #fffdf8;
+}
+
+.crypto-amount input:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+
+.crypto-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.crypto-actions .button.secondary {
+  color: var(--ink);
+  background: #eadbc7;
+  border-color: var(--line);
+}
+
+.crypto-status {
+  min-height: 1.4rem;
+  margin-top: 0.8rem !important;
+  color: var(--teal-dark) !important;
+  font-weight: 800;
+}
+
+.crypto-status.is-warning {
+  color: #7a3a24 !important;
+}
+
+.crypto-disclosure {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: baseline;
+  color: var(--ink-soft);
+}
+
+.crypto-disclosure strong {
+  color: var(--night);
+}
+
+.crypto-disclosure code {
+  color: var(--teal-dark);
+  font-weight: 850;
+}
+
+@media (max-width: 860px) {
+  .crypto-grid {
+    grid-template-columns: 1fr;
+  }
+}

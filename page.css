@@ -1,0 +1,244 @@
+.page-hero {
+  min-height: 58svh;
+  display: grid;
+  align-items: end;
+  padding: 8rem clamp(1rem, 5vw, 5rem) 4rem;
+  color: var(--paper-strong);
+  background:
+    linear-gradient(110deg, rgba(23, 20, 17, 0.94), rgba(23, 20, 17, 0.58)),
+    radial-gradient(circle at 74% 30%, rgba(201, 145, 47, 0.34), transparent 32%),
+    radial-gradient(circle at 84% 70%, rgba(36, 112, 108, 0.42), transparent 34%),
+    var(--night);
+}
+
+.page-hero-content {
+  width: min(54rem, 100%);
+}
+
+.page-hero h1 {
+  max-width: 12ch;
+}
+
+.page-hero p {
+  width: min(42rem, 100%);
+  margin: 1rem 0 0;
+  color: rgba(255, 250, 241, 0.82);
+  font-size: 1.12rem;
+}
+
+.page-section {
+  padding: 5rem clamp(1rem, 5vw, 5rem);
+}
+
+.page-band {
+  background: #efe5d7;
+}
+
+.page-grid,
+.episode-grid,
+.donation-grid,
+.support-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.page-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.episode-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.donation-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.support-grid {
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
+}
+
+.page-card,
+.episode-card,
+.donation-card,
+.pledge-form,
+.transparency-panel,
+.subscribe-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.page-card,
+.episode-card,
+.donation-card,
+.transparency-panel,
+.subscribe-panel {
+  padding: 1.25rem;
+}
+
+.page-card h3,
+.episode-card h3,
+.donation-card h3,
+.transparency-panel h3,
+.subscribe-panel h3 {
+  margin-bottom: 0.6rem;
+}
+
+.page-card p,
+.episode-card p,
+.donation-card p,
+.transparency-panel p,
+.subscribe-panel p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.episode-meta,
+.donation-amount,
+.safe-note {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--rust);
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.episode-actions,
+.subscribe-actions,
+.donation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.episode-actions .button.secondary,
+.subscribe-actions .button.secondary,
+.donation-actions .button.secondary {
+  color: var(--ink);
+  background: #eadbc7;
+  border-color: var(--line);
+}
+
+.audio-placeholder {
+  display: grid;
+  grid-template-columns: 2.65rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  margin: 1rem 0 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #f0e0ca;
+}
+
+.play-mark {
+  width: 2.65rem;
+  height: 2.65rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--paper-strong);
+  background: var(--teal-dark);
+  font-weight: 950;
+}
+
+.audio-placeholder span:last-child {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.donation-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.donation-card .button {
+  margin-top: auto;
+}
+
+.donation-amount {
+  color: var(--teal-dark);
+  font-size: 1rem;
+}
+
+.pledge-form {
+  padding: 1.25rem;
+}
+
+.pledge-form label {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.pledge-form input,
+.pledge-form select,
+.pledge-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  color: var(--ink);
+  background: #fffdf8;
+}
+
+.pledge-form input:focus,
+.pledge-form select:focus,
+.pledge-form textarea:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+
+.pledge-status {
+  min-height: 1.4rem;
+  margin: 0.8rem 0 0;
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.transparency-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+}
+
+.transparency-list li {
+  margin-bottom: 0.5rem;
+}
+
+.transparency-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1080px) {
+  .page-grid,
+  .donation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .episode-grid,
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-hero {
+    min-height: 50svh;
+    padding-top: 10.5rem;
+  }
+
+  .page-grid,
+  .donation-grid {
+    grid-template-columns: 1fr;
+  }
+}

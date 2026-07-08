@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donate | Religion of Transformation</title>
+  <meta name="description" content="Support the Religion of Transformation with voluntary, transparent giving.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="complete.css">
+  <link rel="stylesheet" href="page.css">
+  <link rel="stylesheet" href="crypto.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <header class="topbar" aria-label="Site header">
+    <a class="brand" href="index.html#home" aria-label="Religion of Transformation home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Religion of Transformation</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+      <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="menu-text">Menu</span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="index.html#beliefs">Beliefs</a>
+      <a href="index.html#practice">Practice</a>
+      <a href="index.html#calendar">Calendar</a>
+      <a href="index.html#geometry">Geometry</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="donate.html">Donate</a>
+      <a class="nav-join" href="index.html#join">Join</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero" aria-labelledby="donate-title">
+      <div class="page-hero-content">
+        <p class="eyebrow">Voluntary support</p>
+        <h1 id="donate-title">Give Without Pressure</h1>
+        <p>
+          Donations support gatherings, public resources, service projects, accessibility, and sacred art.
+          Giving is optional and never required for belonging, care, leadership, forgiveness, or spiritual worth.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#pledge">Make a Pledge</a>
+          <a class="button secondary" href="#transparency">Read the Giving Covenant</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="giving-title">
+      <div class="section-heading">
+        <p class="eyebrow">Giving options</p>
+        <h2 id="giving-title">Choose a level of support</h2>
+        <p class="section-copy">
+          These are suggested levels only. Do not give money needed for rent, food, medicine, debt safety,
+          family obligations, or emergency reserves.
+        </p>
+      </div>
+
+      <div class="donation-grid">
+        <article class="donation-card">
+          <span class="donation-amount">$5</span>
+          <h3>Lamp Gift</h3>
+          <p>Supports printing, transcripts, candles, basic hosting, and small circle materials.</p>
+          <a class="button secondary" href="#pledge">Choose</a>
+        </article>
+        <article class="donation-card">
+          <span class="donation-amount">$20</span>
+          <h3>Circle Gift</h3>
+          <p>Supports local gathering supplies, accessibility needs, and shared study resources.</p>
+          <a class="button secondary" href="#pledge">Choose</a>
+        </article>
+        <article class="donation-card">
+          <span class="donation-amount">$60</span>
+          <h3>Service Gift</h3>
+          <p>Supports a concrete repair, aid action, community meal, or public resource project.</p>
+          <a class="button secondary" href="#pledge">Choose</a>
+        </article>
+        <article class="donation-card">
+          <span class="donation-amount">Custom</span>
+          <h3>Free Gift</h3>
+          <p>Choose an amount, non-money contribution, equipment, space, skill, or volunteer time.</p>
+          <a class="button secondary" href="#pledge">Choose</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="crypto" class="page-section crypto-section" aria-labelledby="crypto-title">
+      <div class="section-heading">
+        <p class="eyebrow">Crypto giving</p>
+        <h2 id="crypto-title">ETH and BTC donations</h2>
+        <p class="section-copy">
+          Crypto gifts are voluntary and irreversible. Confirm the recipient address, network,
+          and amount before sending. Do not send money needed for basic obligations or emergencies.
+        </p>
+      </div>
+
+      <div class="crypto-grid">
+        <article class="crypto-card" data-asset="eth">
+          <span class="crypto-kicker">Ethereum</span>
+          <h3>Donate ETH</h3>
+          <p>Use an Ethereum wallet such as MetaMask to prepare a transaction, or copy the address manually.</p>
+          <div class="wallet-address" id="eth-address">Wallet address not configured</div>
+          <label class="crypto-amount">
+            Amount in ETH
+            <input id="eth-amount" type="number" min="0" step="0.0001" placeholder="0.05">
+          </label>
+          <div class="crypto-actions">
+            <button class="button primary" id="eth-connect" type="button">Connect Wallet</button>
+            <button class="button secondary" id="eth-send" type="button">Prepare ETH Gift</button>
+            <button class="button secondary" id="eth-copy" type="button">Copy Address</button>
+          </div>
+          <p class="crypto-status" id="eth-status" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="crypto-card" data-asset="btc">
+          <span class="crypto-kicker">Bitcoin</span>
+          <h3>Donate BTC</h3>
+          <p>Copy the Bitcoin address into your wallet. A QR code can be added after the final address is configured.</p>
+          <div class="wallet-address" id="btc-address">Wallet address not configured</div>
+          <label class="crypto-amount">
+            Amount in BTC
+            <input id="btc-amount" type="number" min="0" step="0.00000001" placeholder="0.001">
+          </label>
+          <div class="crypto-actions">
+            <button class="button primary" id="btc-uri" type="button">Open BTC Wallet</button>
+            <button class="button secondary" id="btc-copy" type="button">Copy Address</button>
+          </div>
+          <p class="crypto-status" id="btc-status" role="status" aria-live="polite"></p>
+        </article>
+      </div>
+
+      <div class="crypto-disclosure">
+        <strong>Configuration needed:</strong>
+        <span>Set the real recipient addresses in <code>crypto.js</code> before accepting live donations.</span>
+      </div>
+    </section>
+
+    <section id="pledge" class="page-section page-band" aria-labelledby="pledge-title">
+      <div class="support-grid">
+        <form class="pledge-form" id="donation-form">
+          <p class="eyebrow">Pledge form</p>
+          <h2 id="pledge-title">Prepare a donation note</h2>
+          <p class="section-copy">
+            This form opens an email draft. Connect Stripe, PayPal, or another processor later when official accounts are ready.
+          </p>
+          <label>
+            Name
+            <input id="donor-name" name="name" autocomplete="name" placeholder="Your name">
+          </label>
+          <label>
+            Email
+            <input id="donor-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          </label>
+          <label>
+            Gift type
+            <select id="gift-type" name="gift-type">
+              <option>One-time donation</option>
+              <option>Monthly donation</option>
+              <option>Service or volunteer time</option>
+              <option>Material or space contribution</option>
+            </select>
+          </label>
+          <label>
+            Amount or contribution
+            <input id="gift-amount" name="gift-amount" placeholder="$20, two hours, meeting space, supplies">
+          </label>
+          <label>
+            Note
+            <textarea id="gift-note" name="gift-note" rows="5" placeholder="Anything the circle should know?"></textarea>
+          </label>
+          <div class="donation-actions">
+            <button class="button primary" type="submit">Save Pledge</button>
+            <a class="button secondary" id="donation-email-link" href="mailto:founding-circle@example.com">Email Pledge</a>
+          </div>
+          <p class="pledge-status" id="pledge-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <article id="transparency" class="transparency-panel">
+          <p class="eyebrow">Giving covenant</p>
+          <h2>Transparency and boundaries</h2>
+          <p>
+            Support must remain voluntary, documented, and proportionate. A community built around transformation
+            cannot use money to create fear, rank, secrecy, or dependence.
+          </p>
+          <ul class="transparency-list">
+            <li>Donations do not buy membership, leadership, influence, forgiveness, or special access.</li>
+            <li>Members should not be pressured to give publicly or beyond their means.</li>
+            <li>Local circles should keep a clear ledger of income, expenses, and service projects.</li>
+            <li>Tax-deductible status should not be claimed unless the proper legal status exists.</li>
+            <li>Financial questions, refusals, and concerns must be welcomed without retaliation.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer complete-footer">
+    <div>
+      <strong>Religion of Transformation</strong>
+      <p>Voluntary practice. Clear ethics. Visible change.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="index.html#beliefs">Beliefs</a>
+      <a href="index.html#calendar">Calendar</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="donate.html">Donate</a>
+      <a href="index.html#join">Join</a>
+    </nav>
+    <p class="footer-note">This community does not replace professional medical, legal, financial, or emergency care.</p>
+  </footer>
+
+  <script src="donate.js"></script>
+  <script src="crypto.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+.topbar {
+  align-items: flex-start;
+}
+
+.nav {
+  max-width: 54rem;
+}
+
+.beliefs-section,
+.community-section,
+.texts-section,
+.faq-section {
+  background: #fbf5ec;
+}
+
+.rites-section,
+.resources-section {
+  background: #efe5d7;
+}
+
+.belief-layout,
+.community-layout {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1.18fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.creed-panel,
+.path-panel,
+.promise-panel,
+.liturgy-strip,
+.belief-grid article,
+.rite-timeline article,
+.role-grid article,
+.text-scroll,
+.resource-grid article,
+.faq-list details {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.creed-panel,
+.path-panel,
+.promise-panel {
+  padding: 1.35rem;
+}
+
+.creed-panel {
+  color: var(--paper-strong);
+  background: var(--night);
+}
+
+.creed-panel h3,
+.path-panel h3,
+.promise-panel h3 {
+  margin-bottom: 0.8rem;
+}
+
+.creed-panel p {
+  color: rgba(255, 250, 241, 0.78);
+}
+
+.creed-panel p:last-child,
+.path-panel ol,
+.promise-panel ol {
+  margin-bottom: 0;
+}
+
+.belief-grid,
+.role-grid,
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.belief-grid article,
+.role-grid article,
+.resource-grid article {
+  padding: 1.1rem;
+}
+
+.belief-grid span,
+.rite-timeline span,
+.text-scroll span {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  color: var(--rust);
+  font-size: 0.75rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.belief-grid h3,
+.role-grid h3,
+.resource-grid h3 {
+  margin-bottom: 0.5rem;
+}
+
+.belief-grid p,
+.role-grid p,
+.resource-grid p,
+.text-scroll p,
+.faq-list p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.rite-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.rite-timeline article {
+  padding: 1.05rem;
+}
+
+.rite-timeline h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+}
+
+.rite-timeline p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.liturgy-strip {
+  margin-top: 1rem;
+  padding: 1.1rem 1.35rem;
+  color: var(--paper-strong);
+  background: var(--teal-dark);
+}
+
+.liturgy-strip p {
+  margin: 0;
+  font-weight: 800;
+}
+
+.path-panel ol,
+.promise-panel ol {
+  padding-left: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.path-panel li,
+.promise-panel li {
+  margin-bottom: 0.55rem;
+}
+
+.path-panel li:last-child,
+.promise-panel li:last-child {
+  margin-bottom: 0;
+}
+
+.text-library {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.text-scroll {
+  padding: 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 241, 0.96), rgba(247, 241, 232, 0.96)),
+    radial-gradient(circle at top left, rgba(201, 145, 47, 0.18), transparent 34%);
+}
+
+.text-scroll h3 {
+  margin-bottom: 0.65rem;
+}
+
+.promise-panel {
+  margin-top: 1rem;
+  background: #fffdf8;
+}
+
+.resource-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 58rem;
+}
+
+.faq-list details {
+  padding: 0;
+  overflow: hidden;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  padding: 1rem 1.1rem;
+  color: var(--night);
+  font-weight: 900;
+}
+
+.faq-list summary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: -2px;
+}
+
+.faq-list details[open] summary {
+  border-bottom: 1px solid var(--line);
+  background: #f0e0ca;
+}
+
+.faq-list p {
+  padding: 1rem 1.1rem;
+}
+
+.complete-footer {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 1.2fr) minmax(12rem, 0.9fr);
+  align-items: start;
+}
+
+.complete-footer strong {
+  display: block;
+  color: var(--paper-strong);
+  margin-bottom: 0.35rem;
+}
+
+.complete-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.complete-footer a {
+  color: var(--paper-strong);
+  border-bottom: 1px solid rgba(255, 250, 241, 0.35);
+}
+
+.footer-note {
+  color: rgba(255, 250, 241, 0.66);
+}
+
+@media (max-width: 1180px) {
+  .rite-timeline,
+  .text-library,
+  .resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .belief-layout,
+  .community-layout,
+  .complete-footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    position: absolute;
+  }
+
+  .nav {
+    max-width: none;
+  }
+
+  .belief-grid,
+  .role-grid,
+  .rite-timeline,
+  .text-library,
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+}

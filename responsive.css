@@ -1,0 +1,297 @@
+.menu-toggle {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .topbar {
+    align-items: center;
+  }
+
+  .nav {
+    flex-wrap: nowrap;
+    max-width: none;
+  }
+
+  .nav a {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1099px) {
+  .topbar {
+    align-items: center;
+  }
+
+  .brand {
+    min-width: 0;
+    max-width: 20rem;
+  }
+
+  .nav {
+    max-width: 42rem;
+  }
+}
+
+@media (max-width: 980px) {
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  .topbar {
+    position: fixed !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    gap: 0.75rem;
+    min-height: 4.25rem;
+    padding: 0.7rem 1rem !important;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    max-width: calc(100% - 7rem);
+    font-size: 0.94rem;
+    line-height: 1.15;
+  }
+
+  .menu-toggle {
+    min-height: 2.65rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.48rem 0.72rem;
+    border: 1px solid rgba(255, 250, 241, 0.24);
+    border-radius: 999px;
+    color: var(--paper-strong);
+    background: rgba(255, 250, 241, 0.1);
+    cursor: pointer;
+    font-weight: 850;
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .menu-bars {
+    width: 1.05rem;
+    display: grid;
+    gap: 0.22rem;
+  }
+
+  .menu-bars span {
+    display: block;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .nav {
+    position: fixed;
+    top: 4.25rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+    max-width: none;
+    max-height: calc(100svh - 5.25rem);
+    padding: 0.75rem;
+    overflow: auto;
+    background: rgba(23, 20, 17, 0.96);
+    border: 1px solid rgba(255, 250, 241, 0.16);
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.4rem);
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+
+  .nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav a {
+    width: 100%;
+    justify-content: flex-start;
+    min-height: 2.75rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.96rem;
+  }
+
+  .nav-join {
+    justify-content: center !important;
+  }
+
+  .hero {
+    min-height: 84svh;
+    padding-top: 7.5rem !important;
+  }
+
+  .page-hero {
+    min-height: 54svh;
+    padding-top: 7.5rem !important;
+  }
+
+  .hero-actions,
+  .form-actions,
+  .calendar-actions,
+  .episode-actions,
+  .subscribe-actions,
+  .donation-actions,
+  .crypto-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button,
+  .hero-actions .button,
+  .form-actions .button,
+  .episode-actions .button,
+  .subscribe-actions .button,
+  .donation-actions .button,
+  .crypto-actions .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    min-width: 320px;
+  }
+
+  h1 {
+    font-size: 2.65rem !important;
+    max-width: 11ch;
+  }
+
+  h2 {
+    font-size: 1.82rem !important;
+  }
+
+  h3 {
+    font-size: 1.12rem;
+  }
+
+  .section,
+  .page-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-copy,
+  .page-hero p,
+  .section-copy {
+    font-size: 1rem;
+  }
+
+  .calendar-shell,
+  .calendar-reference,
+  .belief-layout,
+  .community-layout,
+  .support-grid {
+    gap: 0.75rem;
+  }
+
+  .calendar-board {
+    overflow-x: auto;
+  }
+
+  .calendar-weekdays,
+  .calendar-grid {
+    min-width: 34rem;
+  }
+
+  .calendar-day {
+    min-height: 5rem;
+  }
+
+  .today-panel,
+  .calendar-board,
+  .join-form,
+  .pledge-form,
+  .crypto-card,
+  .transparency-panel,
+  .subscribe-panel,
+  .page-card,
+  .episode-card,
+  .donation-card {
+    padding: 1rem;
+  }
+
+  .date-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-list,
+  .house-list,
+  .year-signs,
+  .belief-grid,
+  .role-grid,
+  .resource-grid,
+  .text-library,
+  .rite-timeline,
+  .page-grid,
+  .episode-grid,
+  .donation-grid,
+  .crypto-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .seal-card {
+    grid-template-columns: 4.75rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.85rem;
+  }
+
+  .seal-art {
+    width: 4.75rem;
+  }
+
+  .doctrine-entry,
+  .year-sign,
+  .geometry-principles article {
+    padding: 0.75rem;
+  }
+
+  .wallet-address {
+    font-size: 0.76rem;
+  }
+
+  .complete-footer {
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand {
+    font-size: 0.86rem;
+  }
+
+  .menu-text {
+    display: none;
+  }
+
+  .menu-toggle {
+    width: 2.65rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  h1 {
+    font-size: 2.25rem !important;
+  }
+
+  .calendar-weekdays,
+  .calendar-grid {
+    min-width: 31rem;
+  }
+}
