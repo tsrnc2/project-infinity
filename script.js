@@ -159,6 +159,35 @@
     "Dawn"
   ];
 
+  const SOLAR_ARCS = [
+    ["Kindling Arc", "The will gathers first light and chooses direction."],
+    ["Ascent Arc", "Discipline climbs through pressure, repetition, and visible effort."],
+    ["Harvest Arc", "Practice ripens into useful work, offering, and responsibility."],
+    ["Descent Arc", "The year turns inward for review, release, repair, and renewal."]
+  ];
+
+  const SOLAR_PATHS = [
+    ["Witness Path", "See the real condition before trying to change it."],
+    ["Refinement Path", "Train one chosen pattern until will becomes discipline."],
+    ["Creation Path", "Make the inner change visible through useful work."],
+    ["Service Path", "Turn personal growth into protection, aid, and repair."],
+    ["Renewal Path", "Release excess and prepare the next vow."]
+  ];
+
+  const LUNAR_WATCHES = [
+    ["Hidden Watch", "Private intention, protection of the seed, and quiet beginning."],
+    ["Testing Watch", "First pressure, adjustment, learning, and truthful measure."],
+    ["Illumined Watch", "Full visibility, offering, gratitude, and public clarity."],
+    ["Releasing Watch", "Completion, simplification, grief, rest, and the dark gate."]
+  ];
+
+  const LUNAR_TIDES = [
+    ["Dark Tide", "Stillness before the vow is spoken."],
+    ["Waxing Tide", "The will gathers strength and form."],
+    ["Full Tide", "Truth is visible and must be handled carefully."],
+    ["Waning Tide", "The work releases what it cannot carry forward."]
+  ];
+
   const TONE_NAMES = [
     "Initiating",
     "Gathering",
@@ -285,6 +314,8 @@
     const moonMetric = document.querySelector("#metric-moon");
     const yearMetric = document.querySelector("#metric-year");
     const holidays = document.querySelector("#selected-holidays");
+    const solarCycleList = document.querySelector("#solar-cycle-list");
+    const lunarCycleList = document.querySelector("#lunar-cycle-list");
 
     dateInput.value = formatDateInput(state.selectedDate);
     title.textContent = `${info.mainLabel}, ${info.yearLabel}`;
@@ -293,6 +324,7 @@
     pulseMetric.textContent = `Tone ${info.pulse.tone} ${info.pulse.toneName}, ${info.pulse.sign}`;
     moonMetric.textContent = `Gate ${info.moon.day}, ${info.moon.phase}`;
     yearMetric.textContent = info.yearCycle;
+    renderCycleLayers(solarCycleList, lunarCycleList, info);
 
     holidays.replaceChildren();
     if (info.holidays.length === 0) {
@@ -314,6 +346,46 @@
       holidays.append(note);
     });
   }
+
+
+  function renderCycleLayers(solarTarget, lunarTarget, info) {
+    if (solarTarget) {
+      renderLayerList(solarTarget, [
+        ["Year Day", `Day ${info.dayOfYear + 1} of ${info.daysInYear}`, "The solar body of the year."],
+        ["Solar Arc", `${info.solar.arc.name}, day ${info.solar.arc.day}`, info.solar.arc.note],
+        ["Solar Path", `${info.solar.path.name}, day ${info.solar.path.day}`, info.solar.path.note],
+        ["House Circuit", `${info.house.fullLabel}`, "The 20-day house shaping visible discipline."],
+        ["Correction", info.solar.correction.name, info.solar.correction.note]
+      ]);
+    }
+
+    if (lunarTarget) {
+      renderLayerList(lunarTarget, [
+        ["Lunation", info.lunar.lunationLabel, "The counted moon cycle from the founding epoch."],
+        ["Moon Gate", `Gate ${info.moon.day} of 30`, "The lunar day used for inner practice."],
+        ["Lunar Watch", `${info.lunar.watch.name}, day ${info.lunar.watch.day}`, info.lunar.watch.note],
+        ["Moon Phase", info.moon.phase, "The visible face of the moon cycle."],
+        ["Lunar Tide", info.lunar.tide.name, info.lunar.tide.note]
+      ]);
+    }
+  }
+
+  function renderLayerList(target, rows) {
+    target.replaceChildren();
+    rows.forEach(([label, value, note]) => {
+      const item = document.createElement("li");
+      const strong = document.createElement("strong");
+      const wrapper = document.createElement("span");
+      const em = document.createElement("em");
+      strong.textContent = label;
+      wrapper.textContent = value;
+      em.textContent = note;
+      wrapper.append(em);
+      item.append(strong, wrapper);
+      target.append(item);
+    });
+  }
+
 
   function renderGrid() {
     const title = document.querySelector("#calendar-month-title");
@@ -402,6 +474,8 @@
     const house = houseFromDay(transformYear.dayOfYear);
     const pulse = sacredPulse(diffDays);
     const moon = moonInfo(diffDays);
+    const solar = solarCycle(transformYear.dayOfYear, daysInTransformYear(transformYear.year), house);
+    const lunar = lunarCycle(moon);
     const info = {
       diffDays,
       year: transformYear.year,
@@ -412,6 +486,8 @@
       house,
       pulse,
       moon,
+      solar,
+      lunar,
       mainLabel: house.fullLabel,
       holidays: []
     };
@@ -493,7 +569,80 @@
     };
   }
 
+
+  function solarCycle(dayOfYear, daysInYear, house) {
+    const arc = segmentFrom(dayOfYear, daysInYear, SOLAR_ARCS);
+    const path = segmentFrom(dayOfYear, daysInYear, SOLAR_PATHS);
+    let correction = {
+      name: "House Day",
+      note: `The day is inside the ${house.name} house of ordinary solar practice.`
+    };
+
+    if (house.kind === "threshold") {
+      correction = {
+        name: `${house.name} Threshold`,
+        note: "The ordinary houses are complete; this day closes, repairs, and prepares the year."
+      };
+    } else if (house.kind === "leap") {
+      correction = {
+        name: "Mirror Day Correction",
+        note: "The leap correction recalibrates the calendar before the next round."
+      };
+    }
+
+    return { arc, path, correction };
+  }
+
+  function lunarCycle(moon) {
+    const watchIndex = moon.day <= 7 ? 0 : moon.day <= 14 ? 1 : moon.day <= 22 ? 2 : 3;
+    const watchStart = watchIndex === 0 ? 1 : watchIndex === 1 ? 8 : watchIndex === 2 ? 15 : 23;
+    const tide = lunarTide(moon.day);
+    return {
+      lunationLabel: displayLunation(moon.lunation),
+      watch: {
+        name: LUNAR_WATCHES[watchIndex][0],
+        note: LUNAR_WATCHES[watchIndex][1],
+        day: moon.day - watchStart + 1
+      },
+      tide
+    };
+  }
+
+  function lunarTide(day) {
+    if (day <= 2 || day >= 29) {
+      return { name: LUNAR_TIDES[0][0], note: LUNAR_TIDES[0][1] };
+    }
+    if (day <= 14) {
+      return { name: LUNAR_TIDES[1][0], note: LUNAR_TIDES[1][1] };
+    }
+    if (day <= 16) {
+      return { name: LUNAR_TIDES[2][0], note: LUNAR_TIDES[2][1] };
+    }
+    return { name: LUNAR_TIDES[3][0], note: LUNAR_TIDES[3][1] };
+  }
+
+  function segmentFrom(dayOfYear, daysInYear, segments) {
+    const index = Math.min(segments.length - 1, Math.floor(dayOfYear * segments.length / daysInYear));
+    const start = Math.floor(daysInYear * index / segments.length);
+    const end = Math.floor(daysInYear * (index + 1) / segments.length) - 1;
+    return {
+      name: segments[index][0],
+      note: segments[index][1],
+      day: dayOfYear - start + 1,
+      span: end - start + 1
+    };
+  }
+
+  function displayLunation(lunation) {
+    if (lunation >= 0) {
+      return `Lunation ${lunation + 1} AT`;
+    }
+    return `Lunation ${Math.abs(lunation)} BT`;
+  }
+
+
   function moonInfo(diffDays) {
+    const lunation = Math.floor(diffDays / SYNODIC_MONTH);
     const age = positiveModuloFloat(diffDays, SYNODIC_MONTH);
     const day = Math.min(30, Math.floor((age / SYNODIC_MONTH) * 30) + 1);
     let phase = "Waxing";
@@ -516,7 +665,7 @@
       phase = "Waning Crescent";
     }
 
-    return { day, phase };
+    return { day, phase, lunation, age };
   }
 
   function yearCycle(year) {

@@ -1,6 +1,6 @@
 # Project Infinity
 
-Project Infinity is a static website for the Religion of Transformation, centered on the belief that willpower and disciplined practice can transform people into better versions of themselves. It includes the public site, a custom Transformation Calendar, supplementary religious text, sacred geometry symbols, podcast page, donation page, and ETH/BTC donation UI placeholders.
+Project Infinity is a static website for the Religion of Transformation, centered on the belief that willpower and disciplined practice can transform people into better versions of themselves. It includes the public site, a custom Transformation Calendar with multi-part solar and lunar cycle readings, complete symbol system, supplementary religious text, sacred geometry symbols, podcast page, donation page, and ETH/BTC donation UI placeholders.
 
 ## Preview
 
@@ -10,6 +10,7 @@ Additional pages:
 
 - `podcast.html`
 - `donate.html`
+- `symbols.html`
 
 ## Notes
 
