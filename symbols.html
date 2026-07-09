@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="complete.css">
   <link rel="stylesheet" href="page.css">
   <link rel="stylesheet" href="symbols.css">
+  <link rel="stylesheet" href="year-cycle.css">
   <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
@@ -43,7 +44,7 @@
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#pulse-matrix">View the 260-Day Matrix</a>
-          <a class="button secondary" href="#cycle-symbols">View Cycle Symbols</a>
+          <a class="button secondary" href="#year-cycle">View Year Cycle</a>
         </div>
       </div>
     </section>
@@ -78,12 +79,42 @@
       </div>
     </section>
 
+    <section id="year-cycle" class="page-section year-cycle-section" aria-labelledby="year-cycle-title">
+      <div class="section-heading">
+        <p class="eyebrow">Year cycle</p>
+        <h2 id="year-cycle-title">The Sixty-Year Wheel</h2>
+        <p class="section-copy">
+          The year cycle gives each year a governing symbol made from three parts: polarity,
+          element, and animal. Together they describe the public temperament of the year and the
+          kind of willpower the community is asked to practice.
+        </p>
+      </div>
+
+      <div class="year-cycle-layout">
+        <aside class="current-year-card" aria-label="Current year sign">
+          <p class="panel-kicker">Current year sign</p>
+          <div id="current-year-symbol" class="current-year-symbol"></div>
+          <h3 id="current-year-title">Loading year sign</h3>
+          <p id="current-year-detail"></p>
+        </aside>
+        <div class="year-wheel-panel">
+          <div class="year-cycle-legend" aria-label="Year sign formula">
+            <article><strong>Polarity</strong><span>Dawn turns the year outward; Dusk turns it inward.</span></article>
+            <article><strong>Element</strong><span>Fire, Earth, Iron, Water, and Wood name the year's force.</span></article>
+            <article><strong>Animal</strong><span>Twelve animal signs name the year's social temperament.</span></article>
+          </div>
+          <div id="year-cycle-wheel" class="year-cycle-wheel" aria-label="Sixty year cycle wheel"></div>
+        </div>
+      </div>
+    </section>
+
     <section id="cycle-symbols" class="page-section page-band" aria-labelledby="cycle-title">
       <div class="section-heading">
         <p class="eyebrow">Named cycle symbols</p>
         <h2 id="cycle-title">All cycle families</h2>
       </div>
       <div class="symbol-jump-list" aria-label="Symbol families">
+        <a href="#year-cycle">60-Year Wheel</a>
         <a href="#count-symbols">4 Counts</a>
         <a href="#tone-symbols">13 Tones</a>
         <a href="#sign-symbols">20 Day Signs</a>

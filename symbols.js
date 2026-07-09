@@ -3,6 +3,8 @@
 
   const SVG_NS = "http://www.w3.org/2000/svg";
   const CENTER = 60;
+  const MS_PER_DAY = 24 * 60 * 60 * 1000;
+  const EPOCH_DAY = Math.floor(Date.UTC(2026, 6, 8) / MS_PER_DAY);
   const COLORS = ["#c9912f", "#24706c", "#a2482e", "#486b3b", "#7b5fa7", "#8d6117"];
 
   const COUNTS = [
@@ -133,6 +135,29 @@
   const ANIMALS = ["Horse", "Sheep", "Monkey", "Bird", "Dog", "Pig", "Mouse", "Ox", "Tiger", "Hare", "Dragon", "Snake"];
   const POLARITIES = ["Dawn", "Dusk"];
 
+  const ELEMENT_MEANINGS = {
+    Fire: "courage, purification, and decisive action",
+    Earth: "stability, stewardship, and embodied discipline",
+    Iron: "boundary, strength, and honest correction",
+    Water: "adaptation, mercy, memory, and emotional motion",
+    Wood: "growth, learning, patience, and renewed life"
+  };
+
+  const ANIMAL_MEANINGS = {
+    Horse: "public motion and the will to begin",
+    Sheep: "care, gentleness, and shared shelter",
+    Monkey: "skill, invention, and playful intelligence",
+    Bird: "message, perspective, and truthful speech",
+    Dog: "loyalty, protection, and kept promises",
+    Pig: "gratitude, nourishment, and enough",
+    Mouse: "attention to small causes and hidden work",
+    Ox: "labor, patience, and reliable strength",
+    Tiger: "bravery, focus, and disciplined force",
+    Hare: "listening, speed, and careful timing",
+    Dragon: "vision, transformation, and sacred power",
+    Snake: "renewal, shedding, and deep study"
+  };
+
   function init() {
     renderCards("#count-symbol-grid", COUNTS.map(([name, key, text], index) => entry(name, key, text, index + 1, "count")), true);
     renderCards("#tone-symbol-grid", TONES.map(([name, text], index) => entry(name, `Tone ${index + 1}`, text, index + 1, "tone")));
@@ -142,6 +167,7 @@
     renderCards("#moon-symbol-grid", MOON_GATES.map(([name, text], index) => entry(name, `Moon Gate ${index + 1}`, text, index + 1, "moon")));
     renderCards("#month-symbol-grid", MONTHS.map(([month, name], index) => entry(`${month}: ${name}`, `Month ${index + 1}`, `${index + 1} primary petals with 13 tone seeds and 20 sign notches.`, index + 1, "month")));
     renderCards("#civil-day-symbol-grid", CIVIL_DAYS.map((name, index) => entry(name, `Civil Day ${index + 1}`, `The day ${index + 1} mark for journals, altars, notes, and daily practice cards.`, index + 1, "civil")));
+    renderYearCycle();
     renderYears();
     renderPulseMatrix();
   }
@@ -172,6 +198,118 @@
       const text = `${polarity} directs the year ${polarity === "Dawn" ? "outward" : "inward"}; ${element} gives its element; ${animal} gives its public temperament.`;
       target.append(createCard(entry(`${polarity} ${element} ${animal}`, `Year ${index + 1}`, text, index + 1, "year"), true));
     }
+  }
+
+  function renderYearCycle() {
+    const wheel = document.querySelector("#year-cycle-wheel");
+    const currentSymbol = document.querySelector("#current-year-symbol");
+    const currentTitle = document.querySelector("#current-year-title");
+    const currentDetail = document.querySelector("#current-year-detail");
+
+    if (!wheel) {
+      return;
+    }
+
+    const currentYear = transformationYearFromDate(new Date());
+    const currentIndex = positiveModulo(currentYear - 1, 60);
+    wheel.replaceChildren();
+
+    for (let index = 0; index < 60; index += 1) {
+      const sign = yearSignForIndex(index);
+      const node = document.createElement("article");
+      const art = document.createElement("div");
+      const title = document.createElement("strong");
+      const meta = document.createElement("span");
+
+      node.className = "year-cycle-node";
+      if (index === currentIndex) {
+        node.classList.add("is-current");
+      }
+
+      art.className = "year-node-symbol";
+      art.append(createSymbolSvg(index + 1, "year", sign.label));
+      title.textContent = (index + 1) + ". " + sign.label;
+      meta.textContent = sign.polarity === "Dawn" ? "Outward year" : "Inward year";
+      node.append(art, title, meta);
+      wheel.append(node);
+    }
+
+    const currentSign = yearSignForIndex(currentIndex);
+    if (currentSymbol) {
+      currentSymbol.replaceChildren(createSymbolSvg(currentIndex + 1, "year", currentSign.label));
+    }
+    if (currentTitle) {
+      currentTitle.textContent = displayYear(currentYear) + ": " + currentSign.label;
+    }
+    if (currentDetail) {
+      currentDetail.textContent = yearSignMeaning(currentSign);
+    }
+  }
+
+  function yearSignForIndex(index) {
+    const polarity = POLARITIES[index % 2];
+    const element = ELEMENTS[Math.floor(index / 2) % ELEMENTS.length];
+    const animal = ANIMALS[index % ANIMALS.length];
+    return {
+      polarity,
+      element,
+      animal,
+      label: polarity + " " + element + " " + animal
+    };
+  }
+
+  function yearSignMeaning(sign) {
+    const direction = sign.polarity === "Dawn"
+      ? "Dawn turns the force outward into visible practice"
+      : "Dusk turns the force inward into study, repair, and restraint";
+    return direction + ". " + sign.element + " carries " + ELEMENT_MEANINGS[sign.element] + ". " + sign.animal + " brings " + ANIMAL_MEANINGS[sign.animal] + ".";
+  }
+
+  function transformationYearFromDate(date) {
+    return yearAndDayFromDiff(dayNumber(date) - EPOCH_DAY).year;
+  }
+
+  function yearAndDayFromDiff(diffDays) {
+    let year = 1;
+    let dayOfYear = diffDays;
+
+    if (dayOfYear >= 0) {
+      while (dayOfYear >= daysInTransformationYear(year)) {
+        dayOfYear -= daysInTransformationYear(year);
+        year += 1;
+      }
+    } else {
+      while (dayOfYear < 0) {
+        year -= 1;
+        dayOfYear += daysInTransformationYear(year);
+      }
+    }
+
+    return { year, dayOfYear };
+  }
+
+  function daysInTransformationYear(year) {
+    return isLeapTransformationYear(year) ? 366 : 365;
+  }
+
+  function isLeapTransformationYear(year) {
+    const cycleYear = year > 0 ? year : 1 - year;
+    return cycleYear % 4 === 0 && (cycleYear % 100 !== 0 || cycleYear % 400 === 0);
+  }
+
+  function displayYear(year) {
+    if (year > 0) {
+      return "Year " + year + " AT";
+    }
+    return "Year " + (1 - year) + " BT";
+  }
+
+  function dayNumber(date) {
+    return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / MS_PER_DAY);
+  }
+
+  function positiveModulo(value, divisor) {
+    return ((value % divisor) + divisor) % divisor;
   }
 
   function renderPulseMatrix() {
