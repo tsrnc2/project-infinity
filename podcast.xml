@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>The Turning Life</title>
+    <link>https://tsrnc2.github.io/project-infinity/podcast.html</link>
+    <atom:link href="https://tsrnc2.github.io/project-infinity/podcast.xml" rel="self" type="application/rss+xml" />
+    <description>Recovery-centered dialogues about life, love, consent, relationship, and daily transformation with Father Rowan, Maya Vale, and Amara Keene.</description>
+    <language>en-us</language>
+    <copyright>Religion of Transformation</copyright>
+    <lastBuildDate>Fri, 10 Jul 2026 10:15:00 +0000</lastBuildDate>
+    <generator>Project Infinity static site</generator>
+    <itunes:author>Religion of Transformation</itunes:author>
+    <itunes:summary>Recovery-centered dialogues about life, love, consent, relationship, and daily transformation with Father Rowan, Maya Vale, and Amara Keene.</itunes:summary>
+    <itunes:type>episodic</itunes:type>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:category text="Religion &amp; Spirituality" />
+    <item>
+      <title>1. Begin Where You Are</title>
+      <description>Maya and Amara ask Father Rowan how honesty can strengthen a relationship without becoming cruelty.</description>
+      <content:encoded><![CDATA[
+        <p>Maya and Amara ask Father Rowan how honesty can strengthen a relationship without becoming cruelty.</p>
+        <p>A three-person dialogue on truthful witness, tenderness, and beginning relationship work from the real condition rather than the performed image.</p>
+        <p><a href="https://tsrnc2.github.io/project-infinity/assets/transcripts/podcast-episode-01-begin-where-you-are.txt">Read the transcript</a></p>
+      ]]></content:encoded>
+      <link>https://tsrnc2.github.io/project-infinity/podcast.html#episode-01</link>
+      <guid isPermaLink="false">turning-life-episode-01</guid>
+      <pubDate>Fri, 10 Jul 2026 09:00:00 +0000</pubDate>
+      <enclosure url="https://tsrnc2.github.io/project-infinity/assets/audio/podcast-episode-01-begin-where-you-are.mp3" length="2543535" type="audio/mpeg" />
+      <itunes:author>Religion of Transformation</itunes:author>
+      <itunes:duration>00:03:32</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>2. The Four Practices in Love</title>
+      <description>Father Rowan teaches Maya and Amara how witness, refinement, creation, and service can guide a committed adult relationship.</description>
+      <content:encoded><![CDATA[
+        <p>Father Rowan teaches Maya and Amara how witness, refinement, creation, and service can guide a committed adult relationship.</p>
+        <p>A relationship-centered teaching on the four daily practices and how partners can help one another without control or spiritual pressure.</p>
+        <p><a href="https://tsrnc2.github.io/project-infinity/assets/transcripts/podcast-episode-02-the-four-practices.txt">Read the transcript</a></p>
+      ]]></content:encoded>
+      <link>https://tsrnc2.github.io/project-infinity/podcast.html#episode-02</link>
+      <guid isPermaLink="false">turning-life-episode-02</guid>
+      <pubDate>Fri, 10 Jul 2026 09:15:00 +0000</pubDate>
+      <enclosure url="https://tsrnc2.github.io/project-infinity/assets/audio/podcast-episode-02-the-four-practices.mp3" length="2787101" type="audio/mpeg" />
+      <itunes:author>Religion of Transformation</itunes:author>
+      <itunes:duration>00:03:52</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>3. Reading a Sacred Day Together</title>
+      <description>Maya and Amara ask how a couple can use the calendar as a shared practice without letting symbols control the relationship.</description>
+      <content:encoded><![CDATA[
+        <p>Maya and Amara ask how a couple can use the calendar as a shared practice without letting symbols control the relationship.</p>
+        <p>A practical dialogue about sacred time, consent, and using calendar symbols as prompts rather than commands inside a relationship.</p>
+        <p><a href="https://tsrnc2.github.io/project-infinity/assets/transcripts/podcast-episode-03-how-to-read-a-sacred-day.txt">Read the transcript</a></p>
+      ]]></content:encoded>
+      <link>https://tsrnc2.github.io/project-infinity/podcast.html#episode-03</link>
+      <guid isPermaLink="false">turning-life-episode-03</guid>
+      <pubDate>Fri, 10 Jul 2026 09:30:00 +0000</pubDate>
+      <enclosure url="https://tsrnc2.github.io/project-infinity/assets/audio/podcast-episode-03-how-to-read-a-sacred-day.mp3" length="2563284" type="audio/mpeg" />
+      <itunes:author>Religion of Transformation</itunes:author>
+      <itunes:duration>00:03:34</itunes:duration>
+      <itunes:episode>3</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>4. Service Completes the Cycle</title>
+      <description>The cohosts ask Father Rowan how partners can help each other through difficulty without turning care into control.</description>
+      <content:encoded><![CDATA[
+        <p>The cohosts ask Father Rowan how partners can help each other through difficulty without turning care into control.</p>
+        <p>A closing dialogue on service, consent, recovery-safe support, and the difference between loving care and ownership.</p>
+        <p><a href="https://tsrnc2.github.io/project-infinity/assets/transcripts/podcast-episode-04-service-completes-the-cycle.txt">Read the transcript</a></p>
+      ]]></content:encoded>
+      <link>https://tsrnc2.github.io/project-infinity/podcast.html#episode-04</link>
+      <guid isPermaLink="false">turning-life-episode-04</guid>
+      <pubDate>Fri, 10 Jul 2026 09:45:00 +0000</pubDate>
+      <enclosure url="https://tsrnc2.github.io/project-infinity/assets/audio/podcast-episode-04-service-completes-the-cycle.mp3" length="2658892" type="audio/mpeg" />
+      <itunes:author>Religion of Transformation</itunes:author>
+      <itunes:duration>00:03:41</itunes:duration>
+      <itunes:episode>4</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>5. When Recovery Begins</title>
+      <description>Maya and Amara speak with Father Rowan about what first moved them toward recovery from compulsive sexual behavior and fentanyl addiction.</description>
+      <content:encoded><![CDATA[
+        <p>Maya and Amara speak with Father Rowan about what first moved them toward recovery from compulsive sexual behavior and fentanyl addiction.</p>
+        <p>A careful, non-graphic dialogue about naming danger, accepting help, and beginning recovery without shame or control.</p>
+        <p><a href="https://tsrnc2.github.io/project-infinity/assets/transcripts/podcast-episode-05-when-recovery-begins.txt">Read the transcript</a></p>
+      ]]></content:encoded>
+      <link>https://tsrnc2.github.io/project-infinity/podcast.html#episode-05</link>
+      <guid isPermaLink="false">turning-life-episode-05</guid>
+      <pubDate>Fri, 10 Jul 2026 10:00:00 +0000</pubDate>
+      <enclosure url="https://tsrnc2.github.io/project-infinity/assets/audio/podcast-episode-05-when-recovery-begins.mp3" length="5057246" type="audio/mpeg" />
+      <itunes:author>Religion of Transformation</itunes:author>
+      <itunes:duration>00:07:01</itunes:duration>
+      <itunes:episode>5</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+  </channel>
+</rss>
