@@ -116,6 +116,17 @@
     ["Dark Gate", "Rest before beginning again."]
   ];
 
+
+  const WEEKLY_VIRTUES = [
+    ["Witness Day", "Truthful sight and honest beginning."],
+    ["Refinement Day", "Correction through repeated action."],
+    ["Creation Day", "Making, learning, and useful work."],
+    ["Service Day", "Aid, repair, protection, and care."],
+    ["Rest Day", "Recovery, enough, and protected limits."],
+    ["Council Day", "Records, questions, accountability, and shared decisions."],
+    ["Renewal Day", "Gratitude, release, and preparation for the next cycle."]
+  ];
+
   const MONTHS = [
     ["January", "Point of Return"], ["February", "Mirror Pair"], ["March", "Triangle of Becoming"],
     ["April", "Square Foundation"], ["May", "Living Star"], ["June", "Hexagon of Balance"],
@@ -165,6 +176,7 @@
     renderCards("#house-symbol-grid", HOUSES.map(([name, text], index) => entry(name, `House ${index + 1}`, text, index + 1, "house")));
     renderCards("#threshold-symbol-grid", THRESHOLDS.map(([name, text], index) => entry(name, index === 5 ? "Leap" : `Threshold ${index + 1}`, text, index + 19, "threshold")), true);
     renderCards("#moon-symbol-grid", MOON_GATES.map(([name, text], index) => entry(name, `Moon Gate ${index + 1}`, text, index + 1, "moon")));
+    renderCards("#week-symbol-grid", WEEKLY_VIRTUES.map(([name, text], index) => entry(name, `Week Symbol ${index + 1}`, text, index + 1, "week")));
     renderCards("#month-symbol-grid", MONTHS.map(([month, name], index) => entry(`${month}: ${name}`, `Month ${index + 1}`, `${index + 1} primary petals with 13 tone seeds and 20 sign notches.`, index + 1, "month")));
     renderCards("#civil-day-symbol-grid", CIVIL_DAYS.map((name, index) => entry(name, `Civil Day ${index + 1}`, `The day ${index + 1} mark for journals, altars, notes, and daily practice cards.`, index + 1, "civil")));
     renderYearCycle();
@@ -371,8 +383,14 @@
     if (item.family === "moon") {
       return `gate ${item.number} of 30`;
     }
+    if (item.family === "week") {
+      return `${item.number} of 7 weekly virtues`;
+    }
     if (item.family === "year") {
       return `${item.number} of 60-year breath`;
+    }
+    if (item.family === "month") {
+      return `${item.number} of 12 month seals`;
     }
     if (item.family === "civil") {
       return `${item.number} day seeds`;

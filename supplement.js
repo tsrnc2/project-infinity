@@ -84,6 +84,17 @@
     ["Flame", "The eighteenth house completes purification. It burns away excess before the threshold days begin."]
   ];
 
+
+  const WEEKLY_VIRTUES = [
+    ["Witness Day", "Begin the week by naming the truth without drama, hiding, or accusation."],
+    ["Refinement Day", "Choose one pattern and practice one concrete correction."],
+    ["Creation Day", "Make the inner change visible through useful work, learning, or craft."],
+    ["Service Day", "Turn growth outward through aid, repair, protection, or practical care."],
+    ["Rest Day", "Let the body recover and separate devotion from exhaustion."],
+    ["Council Day", "Review promises, money, records, questions, and shared decisions."],
+    ["Renewal Day", "Release what failed, give thanks, and prepare the next cycle of practice."]
+  ];
+
   const THRESHOLDS = [
     ["Unbinding", "Release a burden, debt of speech, false role, or stale resentment before the year can close."],
     ["Silence", "Stop performing the self. Keep vigil, listen, and let the next vow arise without pressure."],

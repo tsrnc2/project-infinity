@@ -429,6 +429,65 @@ h3 {
   font-weight: 800;
 }
 
+.common-symbols {
+  margin: 1.25rem 0;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 250, 241, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.06);
+}
+
+.common-symbols > strong {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: rgba(255, 250, 241, 0.7);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.common-symbols ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.common-symbols li {
+  display: grid;
+  gap: 0.18rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(255, 250, 241, 0.12);
+}
+
+.common-symbols li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.common-symbols li strong {
+  color: rgba(255, 250, 241, 0.6);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.common-symbols li span {
+  color: var(--paper-strong);
+  font-weight: 850;
+}
+
+.common-symbols li em {
+  display: block;
+  margin-top: 0.18rem;
+  color: rgba(255, 250, 241, 0.72);
+  font-size: 0.88rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
 .selected-holidays {
   display: flex;
   flex-direction: column;
@@ -498,14 +557,164 @@ h3 {
   background: transparent;
 }
 
+.council-section {
+  background: #efe5d7;
+}
+
+.council-grid,
+.symbol-scale-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.council-grid,
+.symbol-scale-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.council-grid article,
+.symbol-scale-grid article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+  padding: 1.15rem;
+}
+
+.council-grid span,
+.symbol-scale-grid span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--rust);
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.council-grid p,
+.symbol-scale-grid p {
+  margin-bottom: 0;
+  color: var(--ink-soft);
+}
+
+.council-election {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1.15fr);
+  gap: 1.2rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.council-election h3 {
+  margin-top: 0;
+}
+
+.council-election p {
+  margin-bottom: 0;
+  color: var(--ink-soft);
+}
+
+.council-election-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+}
+
+.council-election-list li::marker {
+  color: var(--rust);
+  font-weight: 900;
+}
+
+.council-election-list strong {
+  color: var(--ink);
+}
+
+.member-section {
+  background: var(--paper);
+}
+
+.member-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.member-profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-height: 100%;
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.member-profile-card > span {
+  color: var(--rust);
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.member-profile-card h3 {
+  margin: 0;
+}
+
+.member-profile-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.member-profile-card dl {
+  display: grid;
+  gap: 0.55rem;
+  margin: auto 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.member-profile-card dl div {
+  display: grid;
+  gap: 0.16rem;
+}
+
+.member-profile-card dt {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.member-profile-card dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.calendar-symbols {
+  margin-top: 2rem;
+}
+
+.compact-heading h3 {
+  font-size: 2rem;
+}
+
 .calendar-weekdays,
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35rem;
 }
 
 .calendar-weekdays {
-  gap: 0.35rem;
   margin-bottom: 0.35rem;
 }
 
@@ -517,8 +726,58 @@ h3 {
   text-transform: uppercase;
 }
 
-.calendar-grid {
-  gap: 0.35rem;
+.testimonials-section {
+  background: #efe5d7;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.testimonial-card,
+.recovery-note {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.testimonial-card {
+  padding: 1.25rem;
+}
+
+.testimonial-card span {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--rust);
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.testimonial-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.testimonial-card strong {
+  display: block;
+  margin-top: 1rem;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.recovery-note {
+  margin-top: 1rem;
+  border-left: 4px solid var(--teal);
+  padding: 1rem 1.1rem;
+  color: var(--ink-soft);
+}
+
+.recovery-note strong {
+  color: var(--ink);
 }
 
 .calendar-day {
@@ -688,6 +947,32 @@ h3 {
   color: var(--ink);
   background: #eadbc7;
   border-color: var(--line);
+}
+
+.consent-check {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.65rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+}
+
+.consent-check input {
+  width: auto;
+  margin-top: 0.2rem;
+}
+
+.consent-check span {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.join-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
 }
 
 .form-status {

@@ -151,6 +151,25 @@
   line-height: 1.35;
 }
 
+.podcast-player {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #f0e0ca;
+}
+
+.podcast-player audio {
+  width: 100%;
+}
+
+.podcast-player span {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
 .donation-card {
   display: flex;
   flex-direction: column;
@@ -217,16 +236,273 @@
   margin-bottom: 0;
 }
 
+.article-section {
+  scroll-margin-top: 5rem;
+}
+
+.article-shell {
+  width: min(72rem, 100%);
+  margin: 0 auto;
+}
+
+.discernment-hero .page-hero-content {
+  width: min(58rem, 100%);
+}
+
+.article-lead {
+  width: min(58rem, 100%);
+}
+
+.article-lead h2 {
+  max-width: 16ch;
+}
+
+.article-lead p {
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+}
+
+.article-note,
+.counter-panel {
+  margin-top: 1.5rem;
+  border-left: 4px solid var(--teal);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  color: var(--ink-soft);
+  background: var(--paper-strong);
+}
+
+.article-note strong,
+.counter-panel strong {
+  color: var(--ink);
+}
+
+.discernment-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.discernment-table {
+  width: 100%;
+  min-width: 54rem;
+  border-collapse: collapse;
+}
+
+.discernment-table th,
+.discernment-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.discernment-table th {
+  color: var(--night);
+  background: #eadbc7;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.discernment-table td {
+  color: var(--ink-soft);
+}
+
+.discernment-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.case-study-grid,
+.discernment-list-grid,
+.principle-grid,
+.correction-steps {
+  display: grid;
+  gap: 1rem;
+}
+
+.case-study-grid,
+.principle-grid,
+.discernment-list-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-study-card,
+.article-case,
+.discernment-list-grid article,
+.principle-grid article,
+.correction-steps article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.case-study-card p,
+.article-case p,
+.discernment-list-grid p,
+.principle-grid p,
+.correction-steps p {
+  color: var(--ink-soft);
+}
+
+.case-study-card strong {
+  display: block;
+  margin-top: 1rem;
+}
+
+.article-case {
+  margin-top: 1rem;
+}
+
+.article-case h3 {
+  font-size: 1.55rem;
+}
+
+.article-case p:last-child,
+.case-study-card p:last-child,
+.principle-grid p:last-child,
+.correction-steps p:last-child {
+  margin-bottom: 0;
+}
+
+.self-rule {
+  border-left-color: var(--rust);
+}
+
+.correction-steps {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.correction-steps span,
+.principle-grid span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  color: var(--paper-strong);
+  background: var(--teal-dark);
+  font-size: 0.82rem;
+  font-weight: 950;
+}
+
+.principle-grid span {
+  background: var(--rust);
+}
+
+.source-list {
+  margin: 0;
+  padding-left: 1.4rem;
+  color: var(--ink-soft);
+}
+
+.source-list li {
+  margin-bottom: 0.6rem;
+}
+
+.source-list a {
+  color: var(--teal-dark);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.affirmations-hero .page-hero-content {
+  width: min(58rem, 100%);
+}
+
+.affirmation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.affirmation-player-card,
+.voice-profile-card,
+.transcript-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.affirmation-player-card audio {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.profile-portrait {
+  width: min(100%, 18rem);
+  aspect-ratio: 1;
+  display: block;
+  margin: 0 auto 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.voice-profile-card dl {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1rem 0 0;
+}
+
+.voice-profile-card div {
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+}
+
+.voice-profile-card dt {
+  color: var(--rust);
+  font-size: 0.76rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.voice-profile-card dd {
+  margin: 0.2rem 0 0;
+  color: var(--ink-soft);
+}
+
+.profile-note,
+.transcript-panel p {
+  color: var(--ink-soft);
+}
+
+.profile-note {
+  margin: 1rem 0 0;
+  font-size: 0.92rem;
+}
+
+.transcript-panel p {
+  margin: 0;
+  font-size: 1.04rem;
+}
+
 @media (max-width: 1080px) {
   .page-grid,
-  .donation-grid {
+  .donation-grid,
+  .case-study-grid,
+  .discernment-list-grid,
+  .principle-grid,
+  .correction-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 860px) {
   .episode-grid,
-  .support-grid {
+  .support-grid,
+  .affirmation-layout {
     grid-template-columns: 1fr;
   }
 }
@@ -238,7 +514,15 @@
   }
 
   .page-grid,
-  .donation-grid {
+  .donation-grid,
+  .case-study-grid,
+  .discernment-list-grid,
+  .principle-grid,
+  .correction-steps {
     grid-template-columns: 1fr;
+  }
+
+  .article-case h3 {
+    font-size: 1.3rem;
   }
 }

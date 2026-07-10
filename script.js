@@ -222,6 +222,41 @@
   const YEAR_ELEMENTS = ["Fire", "Earth", "Iron", "Water", "Wood"];
   const YEAR_POLARITIES = ["Dawn", "Dusk"];
 
+  const WEEKDAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  const WEEKLY_VIRTUES = [
+    ["Witness Day", "Name the truth without drama, hiding, or accusation."],
+    ["Refinement Day", "Choose one pattern and practice one concrete correction."],
+    ["Creation Day", "Make inner change visible through useful work, learning, or craft."],
+    ["Service Day", "Turn growth outward through aid, repair, protection, or practical care."],
+    ["Rest Day", "Let the body recover and separate devotion from exhaustion."],
+    ["Council Day", "Review promises, money, records, questions, and shared decisions."],
+    ["Renewal Day", "Release what failed, give thanks, and prepare the next cycle."]
+  ];
+
+  const MONTH_SYMBOLS = [
+    ["January", "Point of Return", "Begin again after endings and choose the first honest step."],
+    ["February", "Mirror Pair", "Study relationship, reflection, and the two-sided nature of change."],
+    ["March", "Triangle of Becoming", "Give intention a third point: action."],
+    ["April", "Square Foundation", "Build a stable place where practice can survive pressure."],
+    ["May", "Living Star", "Let growth branch outward through skill, beauty, and repair."],
+    ["June", "Hexagon of Balance", "Restore proportion between body, work, rest, and service."],
+    ["July", "Pilgrim Spiral", "Travel inward and outward without losing the center."],
+    ["August", "Double Wheel", "Coordinate personal discipline with shared responsibility."],
+    ["September", "Ninefold Lamp", "Clarify learning, memory, and the light carried into darker work."],
+    ["October", "Decade Ring", "Review the cycle of choices and close what has matured."],
+    ["November", "Hidden Pillar", "Strengthen quiet commitments before they are seen."],
+    ["December", "Council Crown", "Gather testimony, gratitude, correction, and public record."]
+  ];
+
+  const CIVIL_DAY_SYMBOLS = [
+    "Source Point", "Twin Witness", "Threefold Vow", "Foundation Mark", "Hand Star", "Balanced Field",
+    "Seeker's Step", "Renewal Loop", "Ripening Lamp", "Offering Wheel", "Unseen Witness", "Council Ring",
+    "Tone Crown", "Bridge of Seven", "Hearth Star", "Fourfold Mirror", "Prime Gate", "House Ring",
+    "Flame Crown", "Full Sign Wheel", "Triple Seven", "Double Witness", "Hidden Gate", "Service Wheel",
+    "Seed Square", "Twin Tone", "Deep Spiral", "Moon Ladder", "Veiled Prime", "Closing Ring", "Outer Gate"
+  ];
+
   const MONTH_FORMAT = new Intl.DateTimeFormat(undefined, {
     month: "long",
     year: "numeric"
@@ -314,6 +349,7 @@
     const moonMetric = document.querySelector("#metric-moon");
     const yearMetric = document.querySelector("#metric-year");
     const holidays = document.querySelector("#selected-holidays");
+    const commonSymbolList = document.querySelector("#common-symbol-list");
     const solarCycleList = document.querySelector("#solar-cycle-list");
     const lunarCycleList = document.querySelector("#lunar-cycle-list");
 
@@ -324,13 +360,14 @@
     pulseMetric.textContent = `Tone ${info.pulse.tone} ${info.pulse.toneName}, ${info.pulse.sign}`;
     moonMetric.textContent = `Gate ${info.moon.day}, ${info.moon.phase}`;
     yearMetric.textContent = info.yearCycle;
+    renderCommonSymbols(commonSymbolList, info);
     renderCycleLayers(solarCycleList, lunarCycleList, info);
 
     holidays.replaceChildren();
     if (info.holidays.length === 0) {
       const note = document.createElement("div");
       note.className = "holiday-note";
-      note.innerHTML = "<strong>Ordinary practice day</strong><span>Follow the tone, house, and moon gate for the day.</span>";
+      note.innerHTML = "<strong>Ordinary practice day</strong><span>Follow the common symbols, tone, house, and moon gate for the day.</span>";
       holidays.append(note);
       return;
     }
@@ -347,6 +384,19 @@
     });
   }
 
+
+  function renderCommonSymbols(target, info) {
+    if (!target) {
+      return;
+    }
+
+    renderLayerList(target, [
+      ["Daily symbol", `${info.symbols.daily.label}: ${info.symbols.daily.name}`, info.symbols.daily.note],
+      ["Weekly symbol", `${info.symbols.weekly.label}: ${info.symbols.weekly.name}`, info.symbols.weekly.note],
+      ["Monthly symbol", `${info.symbols.monthly.label}: ${info.symbols.monthly.name}`, info.symbols.monthly.note],
+      ["Yearly symbol", info.symbols.yearly.name, info.symbols.yearly.note]
+    ]);
+  }
 
   function renderCycleLayers(solarTarget, lunarTarget, info) {
     if (solarTarget) {
@@ -476,11 +526,13 @@
     const moon = moonInfo(diffDays);
     const solar = solarCycle(transformYear.dayOfYear, daysInTransformYear(transformYear.year), house);
     const lunar = lunarCycle(moon);
+    const symbols = commonSymbolsFromDate(date, transformYear.year);
     const info = {
       diffDays,
       year: transformYear.year,
       yearLabel: displayYear(transformYear.year),
-      yearCycle: yearCycle(transformYear.year),
+      yearCycle: symbols.yearly.name,
+      symbols,
       dayOfYear: transformYear.dayOfYear,
       daysInYear: daysInTransformYear(transformYear.year),
       house,
@@ -494,6 +546,38 @@
 
     info.holidays = holidaysFor(info);
     return info;
+  }
+
+  function commonSymbolsFromDate(date, transformYear) {
+    const dayIndex = date.getDate() - 1;
+    const weekIndex = date.getDay();
+    const monthIndex = date.getMonth();
+    const weekly = WEEKLY_VIRTUES[weekIndex];
+    const monthly = MONTH_SYMBOLS[monthIndex];
+    const yearName = yearCycle(transformYear);
+
+    return {
+      daily: {
+        label: `Civil Day ${dayIndex + 1}`,
+        name: CIVIL_DAY_SYMBOLS[dayIndex],
+        note: "The day-of-month seal for journals, altars, meeting notes, and daily practice cards."
+      },
+      weekly: {
+        label: WEEKDAY_NAMES[weekIndex],
+        name: weekly[0],
+        note: weekly[1]
+      },
+      monthly: {
+        label: monthly[0],
+        name: monthly[1],
+        note: monthly[2]
+      },
+      yearly: {
+        label: displayYear(transformYear),
+        name: yearName,
+        note: `${displayYear(transformYear)} in the 60-year breath; this sign names the larger public temperament of the year.`
+      }
+    };
   }
 
   function yearAndDayFromDiff(diffDays) {
@@ -786,7 +870,7 @@
     const holidayText = info.holidays.length
       ? ` Holidays: ${info.holidays.map((holiday) => holiday.name).join(", ")}.`
       : "";
-    return `${FULL_DATE_FORMAT.format(date)}. ${info.mainLabel}, ${info.yearLabel}. Tone ${info.pulse.tone} ${info.pulse.sign}.${holidayText}`;
+    return `${FULL_DATE_FORMAT.format(date)}. ${info.mainLabel}, ${info.yearLabel}. Daily symbol ${info.symbols.daily.name}. Weekly symbol ${info.symbols.weekly.name}. Monthly symbol ${info.symbols.monthly.name}. Yearly symbol ${info.symbols.yearly.name}. Tone ${info.pulse.tone} ${info.pulse.sign}.${holidayText}`;
   }
 
   function stripTime(date) {
@@ -833,10 +917,13 @@
     const form = document.querySelector("#join-form");
     const status = document.querySelector("#form-status");
     const emailLink = document.querySelector("#email-link");
+    const submitButton = form?.querySelector("button[type='submit']");
+    const endpoint = form?.dataset.registrationEndpoint || "";
     const fields = {
       name: document.querySelector("#name"),
       email: document.querySelector("#email"),
-      transformation: document.querySelector("#transformation")
+      transformation: document.querySelector("#transformation"),
+      consent: document.querySelector("#registration-consent")
     };
 
     if (!form || !status || !emailLink) {
@@ -847,27 +934,103 @@
     syncEmailLink(fields, emailLink);
 
     Object.values(fields).forEach((field) => {
-      field.addEventListener("input", () => syncEmailLink(fields, emailLink));
+      field?.addEventListener("input", () => syncEmailLink(fields, emailLink));
+      field?.addEventListener("change", () => syncEmailLink(fields, emailLink));
     });
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const intention = {
-        name: fields.name.value.trim(),
-        email: fields.email.value.trim(),
-        transformation: fields.transformation.value.trim(),
-        savedAt: new Date().toISOString()
-      };
-
-      try {
-        localStorage.setItem("transformation-intention", JSON.stringify(intention));
-        status.textContent = "Intention saved in this browser.";
-      } catch (error) {
-        status.textContent = "Intention prepared. Browser storage is unavailable.";
+    emailLink.addEventListener("click", (event) => {
+      if (!validateRegistration(fields, status)) {
+        event.preventDefault();
+        return;
       }
 
+      saveIntention(readIntention(fields), status);
       syncEmailLink(fields, emailLink);
     });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const intention = readIntention(fields);
+
+      if (!validateRegistration(fields, status)) {
+        return;
+      }
+
+      saveIntention(intention, status);
+      syncEmailLink(fields, emailLink);
+
+      if (!endpoint) {
+        status.textContent = "Opening email registration draft.";
+        window.location.href = emailLink.href;
+        return;
+      }
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Registering...";
+      }
+      status.textContent = "Submitting registration...";
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(intention)
+        });
+
+        if (!response.ok) {
+          throw new Error(`Registration failed with status ${response.status}`);
+        }
+
+        status.textContent = "Registration sent. Check your email for the next step.";
+        form.reset();
+        localStorage.removeItem("transformation-intention");
+        syncEmailLink(fields, emailLink);
+      } catch (error) {
+        status.textContent = "Registration could not be sent. Use Email Registration instead.";
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Register";
+        }
+      }
+    });
+  }
+
+  function validateRegistration(fields, status) {
+    if (!fields.name.value.trim() || !fields.email.value.trim() || !fields.transformation.value.trim()) {
+      status.textContent = "Name, email, and transformation are required.";
+      return false;
+    }
+
+    if (!fields.consent?.checked) {
+      status.textContent = "Consent is required before registration.";
+      return false;
+    }
+
+    return true;
+  }
+
+  function readIntention(fields) {
+    return {
+      name: fields.name.value.trim(),
+      email: fields.email.value.trim(),
+      transformation: fields.transformation.value.trim(),
+      consent: Boolean(fields.consent?.checked),
+      source: "homepage-registration",
+      savedAt: new Date().toISOString()
+    };
+  }
+
+  function saveIntention(intention, status) {
+    try {
+      localStorage.setItem("transformation-intention", JSON.stringify(intention));
+    } catch (error) {
+      status.textContent = "Registration prepared. Browser storage is unavailable.";
+    }
   }
 
   function loadSavedIntention(fields) {
@@ -880,16 +1043,20 @@
       fields.name.value = intention.name || "";
       fields.email.value = intention.email || "";
       fields.transformation.value = intention.transformation || "";
+      if (fields.consent) {
+        fields.consent.checked = Boolean(intention.consent);
+      }
     } catch (error) {
       // Ignore invalid local storage data.
     }
   }
 
   function syncEmailLink(fields, emailLink) {
-    const subject = encodeURIComponent("Founding Circle Intention");
+    const subject = encodeURIComponent("Founding Circle Registration");
     const body = encodeURIComponent([
       `Name: ${fields.name.value.trim()}`,
       `Email: ${fields.email.value.trim()}`,
+      `Consent: ${fields.consent?.checked ? "yes" : "no"}`,
       "",
       "Transformation:",
       fields.transformation.value.trim()
