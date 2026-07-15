@@ -1,0 +1,11 @@
+[Unit]
+Description=Create one Project Infinity agent podcast every day
+
+[Timer]
+OnCalendar=*-*-* 14:30:00 UTC
+RandomizedDelaySec=15m
+Persistent=true
+Unit=cryptokingpin-daily-podcast.service
+
+[Install]
+WantedBy=timers.target

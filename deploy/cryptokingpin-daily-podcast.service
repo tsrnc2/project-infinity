@@ -1,0 +1,31 @@
+[Unit]
+Description=Publish the sanitized daily agent ensemble podcast
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=cryptobot
+Group=cryptobot
+WorkingDirectory=/opt/project-infinity
+Environment=HOME=/home/cryptobot
+Environment=PATH=/home/cryptobot/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/usr/bin/bash /opt/project-infinity/deploy/daily-podcast-agent-run.sh
+Nice=15
+CPUQuota=125%
+MemoryMax=1800M
+TimeoutStartSec=3h
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=full
+ProtectHome=read-only
+NoNewPrivileges=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+UMask=0027
+ReadOnlyPaths=/opt/cryptokingpin/dashboard/data
+ReadWritePaths=/opt/project-infinity /opt/cryptokingpin/agent/daily-podcast /opt/cryptokingpin/agent/state /home/cryptobot/.gemini/antigravity-cli
