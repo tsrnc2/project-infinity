@@ -11,7 +11,10 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 
-BASE_URL = "https://tsrnc2.github.io/project-infinity/"
+BASE_URLS = (
+    "https://tsrnc2.github.io/project-infinity/",
+    "https://jacobscryptotrader.duckdns.org/transformation/",
+)
 
 
 def report(kind: str, message: str) -> None:
@@ -19,11 +22,14 @@ def report(kind: str, message: str) -> None:
 
 
 def enclosure_path(root: Path, url: str) -> Path | None:
-    if url.startswith(BASE_URL):
-        return root / url.removeprefix(BASE_URL)
+    for base_url in BASE_URLS:
+        if url.startswith(base_url):
+            return root / url.removeprefix(base_url)
     parsed = urlparse(url)
     if parsed.netloc == "tsrnc2.github.io" and parsed.path.startswith("/project-infinity/"):
         return root / parsed.path.removeprefix("/project-infinity/")
+    if parsed.netloc == "jacobscryptotrader.duckdns.org" and parsed.path.startswith("/transformation/"):
+        return root / parsed.path.removeprefix("/transformation/")
     return None
 
 
