@@ -4,13 +4,14 @@ This guide defines the working production pipeline for The Turning Life podcast 
 
 ## Production Goal
 
-The show should sound like a calm spiritual dialogue, not a lecture. The recurring format is an older religious guide, Father Rowan, answering sincere questions from Maya Vale and Amara Keene, adult cohosts who are romantic partners. Maya is the younger adult cohost and is in recovery from compulsive sexual behavior, which she may personally describe as sex addiction. Amara is the older of the two adult cohosts and is in recovery from fentanyl addiction / opioid use disorder. Each episode should leave the listener with one concrete practice they can apply that day.
+The show should sound like a calm spiritual dialogue recorded around a careful home table, not a sterile studio lecture. The recurring format is an older religious guide, Father Rowan, answering sincere questions from Maya Vale and Amara Keene, adult West Coast cohosts who are romantic partners. Maya is the younger adult cohost, red-haired, shown in Tibetan traditional clothing, and in recovery from compulsive sexual behavior, which she may personally describe as sex addiction. Amara is the older of the two adult cohosts, brunette, shown in Native Hawaiian ceremonial-inspired attire, and in recovery from fentanyl addiction / opioid use disorder. Each episode should root spiritual teaching in everyday life and leave the listener with one concrete practice they can apply that day.
 
 The core promise:
 
 - thoughtful spiritual guidance without coercion
 - consent-centered relationship language
 - practical self-examination rather than vague inspiration
+- ordinary-life examples: work, chores, cravings, conflict, rest, money stress, meals, errands, family, and daily routines
 - enough conversational warmth that listeners return for the cast, not just the topic
 
 ## Minimum Release Standard
@@ -39,7 +40,7 @@ python3 tools/podcast_loudness_report.py --root .
 
 - `ffmpeg`: render, concatenate, normalize, transcode, inspect audio.
 - `ffprobe`: verify codec, duration, channels, sample rate, and stream metadata.
-- `edge-tts`: generate the current professional-style voice drafts.
+- `edge-tts`: generate draft timing audio only; do not use it for public masters.
 - `python3`: run repeatable QC scripts and feed checks.
 
 ### Editing Tools
@@ -55,6 +56,36 @@ python3 tools/podcast_loudness_report.py --root .
 - A speech-to-text tool for first-pass transcripts, followed by human cleanup.
 - A podcast hosting validator or platform dashboard after deployment.
 
+
+## Geometric Intro
+
+Each public episode should open with the original `the-turning-life-geometric-intro` motif. The intro is generated, not sampled, on an 84-step timing grid: four-count grounding pulses, seven-count chime movement, and twelve-count cycle accents. Keep it short, nonverbal, and below the dialogue loudness so it signals the show without becoming the show.
+
+## Transition Soundtrack
+
+The site uses original free-use transition music generated from procedural synthesis, with no third-party samples. Keep transition cues short, low in the mix, and tied to section changes rather than interrupting emotional disclosure. Current soundtrack assets live in `assets/audio/the-turning-life-transition-*` and the combined soundtrack is `assets/audio/the-turning-life-transition-soundtrack.mp3` / `.wav`.
+
+## Natural Dialogue and Park Ambience
+
+Dialogue should sound like people thinking together at a table. Add occasional natural hesitations, repeated words, and self-corrections sparingly; avoid turning stutters into comedy, caricature, or distraction. Public episodes may carry subtle park ambience, such as low air, distant leaves, and light bird calls, mixed under the voices and kept below the teaching.
+
+## House Sound
+
+The podcast should sound like it was recorded on decent home podcast gear, not like an over-polished studio production. Keep speech clear and publishable, but preserve a modest lived-in table quality:
+
+- slightly softened high end rather than glossy broadcast brightness
+- gentle room texture and quiet noise floor
+- natural compression that keeps voices close without sounding crushed
+- mild warmth and small-room reflection
+- no heavy distortion, no muffled telephone effect, and no distracting hiss
+- occasional story-motivated background sounds may be used sparingly, such as home noises or a faint distant train, but they must stay well under the dialogue
+
+Current processed files use a command-line home-gear chain before final loudness normalization: high-pass, low-pass, mild low-mid warmth, slight high reduction, gentle compression, subtle short ambience, quiet pink room tone, limiter, then two-pass loudness normalization.
+
+## Master Track Manifests
+
+Podcast mixes must be non-destructive. Keep dry dialogue and section stems separate from music, ambience, and sound effects. For each episode, write a master-track JSON file under `assets/audio/master-tracks/<episode-slug>/<episode-slug>.master.json` that lists the dry dialogue source, section stems, transition music cues, ambience stems, final premaster, public WAV, and MP3. To add or remove sound effects, edit the manifest and rerender the mix; do not alter the source dialogue tracks.
+
 ## Audio Specifications
 
 Use the Apple Podcasts RSS audio target as the house standard because it is strict enough for broad podcast distribution.
@@ -69,6 +100,11 @@ Use the Apple Podcasts RSS audio target as the house standard because it is stri
 
 For a three-voice talk show, mono is acceptable when all voices are centered. Stereo can be useful if music, ambience, or spatial cohost placement becomes part of the show identity.
 
+
+## Episode Sections
+
+Each episode should use distinct, listener-recognizable sections: Opening; Personal life check-in; Teaching; Emotional turn; Daily practice; Closing statement. The personal life check-in lets Maya and Amara mention ordinary household, relationship, recovery, or daily-practice moments and how the religion helped them name truth, consent, boundaries, service, or support. Do not imply the religion cures addiction, replaces trained care, or guarantees transformation.
+
 ## Episode Pipeline
 
 ### 1. Brief
@@ -79,7 +115,7 @@ Write a one-page brief before scripting:
 - listener problem
 - one-sentence promise
 - theological theme
-- relationship or daily-life example
+- relationship or daily-life example, such as dishes, rent, fatigue, texts, errands, family calls, work stress, cravings, meals, sleep, or repair after conflict
 - one concrete practice
 - risk notes, such as medical, addiction, consent, abuse, compulsive sexual behavior, opioid/fentanyl recovery, or crisis topics
 
@@ -87,23 +123,28 @@ Write a one-page brief before scripting:
 
 Keep the script conversational and structured:
 
-- open with a direct listener problem in the first 15 seconds
+- open with a direct everyday listener problem in the first 15 seconds
+- include a personal life check-in where the hosts connect practice to ordinary life without promising cures
+- include a personal life check-in where the hosts connect practice to ordinary life without promising cures
 - let Maya and Amara ask plain-language questions
 - let Father Rowan answer slowly and concretely
 - include one moment of gentle disagreement or clarification
+- include one restrained emotional moment inside the conversation and close with the house statement
 - end with one practice, not a slogan
 
 For sensitive topics such as drug abuse relief, recovery, trauma, compulsive sexual behavior, coercive belief, or relationship distress, avoid promising cures. Point listeners toward support, consent, professional help, and self-directed change. Treat Maya's and Amara's recovery histories as lived context, not spectacle or moral branding.
 
+Maya-specific recovery backstory may include family abuse and adult silence, early alcohol use, compulsive sexual behavior, emotionally exploitative relationships, alcohol and other substance use, dangerous coercive circles, partner harm, relapse, depression, and current early sobriety. Public scripts must keep this non-graphic, avoid drug-use mechanics and erotic detail, avoid unverifiable identifying allegations, and pair the witness with safety planning, trained support, consent, boundaries, and repair.
+
 ### 3. Voice Generation or Recording
 
-Current generated-voice casting:
+Draft generated-voice casting for timing review only:
 
 - Father Rowan: `en-GB-ThomasNeural`, slower pace, lower pitch.
-- Maya Vale: `en-US-JennyNeural`, warm American/Midwestern-style delivery; younger adult cohost in recovery from compulsive sexual behavior.
-- Amara Keene: `en-AU-NatashaNeural`, Australian delivery; older adult cohost in recovery from fentanyl addiction / opioid use disorder.
+- Maya Vale: `en-US-JennyNeural`, warm American delivery; red-haired younger West Coast adult cohost in recovery from compulsive sexual behavior.
+- Amara Keene: brunette older West Coast adult cohost in recovery from fentanyl addiction / opioid use disorder. Existing episodes use `en-AU-NatashaNeural`; if future production fully recasts the West Coast identity, choose one consistent U.S. English voice and regenerate affected episodes together.
 
-Keep each speaker on a separate source track. This makes pacing, silence, level balancing, and replacement lines easier.
+Keep each speaker on a separate source track. This makes pacing, silence, level balancing, and replacement lines easier. For public masters, place human line takes under `assets/audio/human-recordings/<episode-slug>/takes/` and run the build with `--voice-source human`.
 
 ### 4. Assembly Edit
 
@@ -115,7 +156,7 @@ Editing order:
 - balance voice levels before compression
 - add intro/outro only if it serves the episode
 
-Avoid overprocessing. A spiritual dialogue should sound intimate, clean, and steady rather than loud or compressed.
+Avoid overprocessing. A spiritual dialogue should sound intimate, clear, and steady, with enough room texture to feel home-recorded rather than sterile.
 
 ### 5. Mix and Master
 
@@ -179,12 +220,13 @@ Recommended launch shape:
 
 The repeatable structure:
 
-1. Hook: name the listener problem.
-2. Question: Maya or Amara asks the practical version.
-3. Teaching: Father Rowan gives the principle.
-4. Relationship test: the cohosts apply it to adult partnership.
-5. Correction: clarify consent, limits, or self-responsibility.
-6. Practice: one action for the listener.
+1. Hook: name the everyday listener problem.
+2. Scene: place it in ordinary life, such as dishes, rent, fatigue, texting, family, cravings, work, food, sleep, or repair after conflict.
+3. Question: Maya or Amara asks the practical version.
+4. Teaching: Father Rowan gives the principle.
+5. Relationship test: the cohosts apply it to adult partnership and recovery.
+6. Correction: clarify consent, limits, or self-responsibility.
+7. Practice: one action for the listener.
 
 This structure keeps episodes useful, searchable, and familiar without sounding mechanical.
 

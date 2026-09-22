@@ -1,0 +1,42 @@
+{
+  "provider": "openai",
+  "openai": {
+    "model": "gpt-4o-mini-tts",
+    "response_format": "wav",
+    "voices": {
+      "Father Rowan": {
+        "voice": "onyx",
+        "instructions": "Older male religious guide. Slow, warm, composed, lightly British-Boston in cadence, intimate podcast table tone, never theatrical."
+      },
+      "Maya Vale": {
+        "voice": "nova",
+        "instructions": "Adult West Coast woman in her 20s. Warm, direct, vulnerable but steady, natural podcast delivery with small hesitations, not melodramatic."
+      },
+      "Amara Keene": {
+        "voice": "coral",
+        "instructions": "Adult West Coast woman in her 20s. Grounded, protective, emotionally clear, relaxed natural conversation, not announcer-like."
+      }
+    }
+  },
+  "elevenlabs": {
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "voice_settings": {
+      "stability": 0.42,
+      "similarity_boost": 0.78,
+      "style": 0.28,
+      "use_speaker_boost": true
+    },
+    "voices": {
+      "Father Rowan": {
+        "voice_id": "REPLACE_WITH_FATHER_ROWAN_VOICE_ID"
+      },
+      "Maya Vale": {
+        "voice_id": "REPLACE_WITH_MAYA_VALE_VOICE_ID"
+      },
+      "Amara Keene": {
+        "voice_id": "REPLACE_WITH_AMARA_KEENE_VOICE_ID"
+      }
+    }
+  }
+}

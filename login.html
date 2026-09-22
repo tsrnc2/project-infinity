@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <title>Member Login | Religion of Transformation</title>
+  <meta name="description" content="Secure member login for the Religion of Transformation.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="complete.css">
+  <link rel="stylesheet" href="page.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <header class="topbar" aria-label="Site header">
+    <a class="brand" href="index.html#home" aria-label="Religion of Transformation home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Religion of Transformation</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+      <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="menu-text">Menu</span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="index.html#beliefs">Beliefs</a>
+      <a href="index.html#practice">Practice</a>
+      <a href="index.html#calendar">Calendar</a>
+      <a href="index.html#geometry">Geometry</a>
+      <a href="index.html#members">Members</a>
+      <a href="symbols.html">Symbols</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="discernment.html">Discernment</a>
+      <a href="gathering.html">Gathering</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="donate.html">Donate</a>
+      <a href="login.html">Login</a>
+      <a class="nav-join" href="index.html#join">Sign Up</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero login-hero" aria-labelledby="login-title">
+      <div class="page-hero-content">
+        <p class="eyebrow">Secure member access</p>
+        <h1 id="login-title">Member Login</h1>
+        <p>
+          Member accounts must be served through HTTPS. The login endpoint should create a secure
+          server-side session cookie; passwords and session tokens should not be stored in this page.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section login-section" aria-labelledby="login-form-title">
+      <div class="support-grid">
+        <article class="subscribe-panel login-context">
+          <p class="eyebrow">Security boundary</p>
+          <h2>HTTPS required</h2>
+          <p>
+            The browser page checks the current protocol before allowing login. On deployment, the
+            host should also force HTTPS and send HSTS headers.
+          </p>
+          <ul class="transparency-list">
+            <li>Use a backend login endpoint over HTTPS.</li>
+            <li>Set session cookies with Secure, HttpOnly, and SameSite protections.</li>
+            <li>Do not return long-lived session tokens to JavaScript.</li>
+            <li>Keep password reset and account recovery behind the same HTTPS boundary.</li>
+          </ul>
+        </article>
+
+        <form class="login-form" id="login-form" data-login-endpoint="" data-login-redirect="index.html#members">
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">Account access</p>
+            <h2 id="login-form-title">Sign in</h2>
+          </div>
+
+          <div class="https-gate" id="https-gate" role="status" aria-live="polite"></div>
+
+          <label>
+            Email
+            <input id="login-email" name="email" type="email" autocomplete="username" placeholder="you@example.com" required>
+          </label>
+          <label>
+            Password
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          </label>
+          <label class="consent-check">
+            <input id="remember-device" name="rememberDevice" type="checkbox">
+            <span>Remember this device only on a private device you control.</span>
+          </label>
+
+          <div class="form-actions">
+            <button class="button primary" id="login-submit" type="submit">Login</button>
+            <a class="button secondary" href="index.html#join">Create Account</a>
+          </div>
+          <p class="form-status" id="login-status" role="status" aria-live="polite"></p>
+
+          <p class="login-help">
+            Account recovery should be handled by the backend through a verified email or phone flow.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer complete-footer">
+    <div>
+      <strong>Religion of Transformation</strong>
+      <p>Voluntary practice. Clear ethics. Visible change.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="index.html#beliefs">Beliefs</a>
+      <a href="index.html#calendar">Calendar</a>
+      <a href="index.html#members">Members</a>
+      <a href="symbols.html">Symbols</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="discernment.html">Discernment</a>
+      <a href="gathering.html">Gathering</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="donate.html">Donate</a>
+      <a href="login.html">Login</a>
+      <a href="index.html#join">Sign Up</a>
+    </nav>
+    <p class="footer-note">This community does not replace professional medical, legal, financial, or emergency care.</p>
+  </footer>
+
+  <script src="login.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

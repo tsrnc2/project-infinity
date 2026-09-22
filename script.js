@@ -257,6 +257,159 @@
     "Seed Square", "Twin Tone", "Deep Spiral", "Moon Ladder", "Veiled Prime", "Closing Ring", "Outer Gate"
   ];
 
+  const MOON_GATE_SYMBOLS = [
+    {
+      name: "Seeded Silence",
+      advanced: "Your core begins in protected intention: transformation starts before it is visible.",
+      question: "What quiet intention needs protection before it is spoken?"
+    },
+    {
+      name: "Hidden Ember",
+      advanced: "Your core preserves first heat: small discipline must be guarded from noise and display.",
+      question: "What small flame am I feeding without needing applause?"
+    },
+    {
+      name: "First Word",
+      advanced: "Your core turns inward truth into speech: one clean sentence can begin repair.",
+      question: "What true sentence is ready to be said without force?"
+    },
+    {
+      name: "Gathering Bowl",
+      advanced: "Your core gathers tools, allies, and attention before demanding movement.",
+      question: "What do I need to gather before I ask myself to change?"
+    },
+    {
+      name: "Clean Floor",
+      advanced: "Your core clears the ground: obstruction, clutter, and unfinished tasks shape the soul.",
+      question: "What one obstacle can I remove so practice has room?"
+    },
+    {
+      name: "Study Lamp",
+      advanced: "Your core learns before it judges: humility turns information into guidance.",
+      question: "What source should I learn from before I decide I know enough?"
+    },
+    {
+      name: "Open Hand",
+      advanced: "Your core receives help without surrendering agency: cooperation begins with consent.",
+      question: "Where can I ask for help while keeping my choice intact?"
+    },
+    {
+      name: "First Quarter",
+      advanced: "Your core is tested by first pressure: vows become real when they meet resistance.",
+      question: "What adjustment would make my vow strong enough for pressure?"
+    },
+    {
+      name: "Strong Back",
+      advanced: "Your core carries necessary weight: responsibility is sacred when it is chosen freely.",
+      question: "What burden is truly mine, and what burden am I pretending to own?"
+    },
+    {
+      name: "True Measure",
+      advanced: "Your core counts honestly: fantasy loses power when the numbers are named.",
+      question: "What fact, pattern, or cost needs a clean measure today?"
+    },
+    {
+      name: "Kind Speech",
+      advanced: "Your core repairs through speech: tone can either open truth or lock it away.",
+      question: "How can I speak truth in a way that keeps repair possible?"
+    },
+    {
+      name: "Shared Table",
+      advanced: "Your core seeks nourishment and belonging: bodies and bonds must be fed honestly.",
+      question: "What ordinary care would make relationship more livable today?"
+    },
+    {
+      name: "High Window",
+      advanced: "Your core remembers scale: a wider purpose can calm a crowded moment.",
+      question: "What larger purpose should guide this small decision?"
+    },
+    {
+      name: "Bright Edge",
+      advanced: "Your core clarifies devotion and obsession: intensity needs a boundary to become holy.",
+      question: "Where has devotion crossed into control, craving, or performance?"
+    },
+    {
+      name: "Full Lamp",
+      advanced: "Your core brings hidden truth into view: visibility asks for care, not spectacle.",
+      question: "What truth is ready to be seen, and who can hold it safely?"
+    },
+    {
+      name: "Blessing Bowl",
+      advanced: "Your core receives gratitude: what is visible must be blessed before it is used.",
+      question: "What help, grace, or progress have I failed to name?"
+    },
+    {
+      name: "Softening",
+      advanced: "Your core releases control of meaning: not every sign belongs to you to command.",
+      question: "Where can I soften my interpretation and listen again?"
+    },
+    {
+      name: "Second Listening",
+      advanced: "Your core hears after the first answer: deeper listening protects freedom.",
+      question: "What did I miss because I was preparing my response?"
+    },
+    {
+      name: "Repair Thread",
+      advanced: "Your core reconnects where possible: repair is specific, voluntary, and patient.",
+      question: "What thread can I mend without demanding the other person move first?"
+    },
+    {
+      name: "Useful Fire",
+      advanced: "Your core turns intensity toward service: heat becomes holy when it reduces harm.",
+      question: "How can I use this intensity to help rather than consume?"
+    },
+    {
+      name: "Waning Crown",
+      advanced: "Your core steps back from attention: leadership must know when to become quiet.",
+      question: "Where do I need less attention and more integrity?"
+    },
+    {
+      name: "Last Quarter",
+      advanced: "Your core cuts away what no longer serves: endings protect the next beginning.",
+      question: "What must be reduced, ended, or simplified for the vow to survive?"
+    },
+    {
+      name: "Plain Meal",
+      advanced: "Your core returns to enough: ordinary sufficiency is a form of freedom.",
+      question: "What is enough for today, even if my appetite asks for more?"
+    },
+    {
+      name: "Ash Review",
+      advanced: "Your core studies what burned and survived: failure can become instruction without becoming identity.",
+      question: "What did this difficulty teach without defining who I am?"
+    },
+    {
+      name: "Quiet Gift",
+      advanced: "Your core serves without recognition: unseen help purifies motive.",
+      question: "What good can I do without needing to be seen doing it?"
+    },
+    {
+      name: "Empty Room",
+      advanced: "Your core completes tasks to make space: closure is an act of mercy.",
+      question: "What unfinished thing is taking up inner room?"
+    },
+    {
+      name: "Ancestral Breath",
+      advanced: "Your core remembers inherited work: lineage is honored by conscious choice, not repetition alone.",
+      question: "What inherited pattern should I bless, revise, or release?"
+    },
+    {
+      name: "Deep Water",
+      advanced: "Your core lets feeling move without ruling: emotion is real, but it is not the whole command.",
+      question: "What feeling needs movement rather than obedience?"
+    },
+    {
+      name: "Closing Breath",
+      advanced: "Your core exhales the month: release prepares the soul for a cleaner vow.",
+      question: "What am I ready to exhale before the next beginning?"
+    },
+    {
+      name: "Dark Gate",
+      advanced: "Your core rests before beginning again: darkness can protect renewal from urgency.",
+      question: "Where does my transformation need rest instead of pressure?"
+    }
+  ];
+
   const MONTH_FORMAT = new Intl.DateTimeFormat(undefined, {
     month: "long",
     year: "numeric"
@@ -272,7 +425,8 @@
   const state = {
     selectedDate: stripTime(new Date()),
     viewYear: new Date().getFullYear(),
-    viewMonth: new Date().getMonth()
+    viewMonth: new Date().getMonth(),
+    birthDate: readStoredBirthDate()
   };
 
   function init() {
@@ -290,6 +444,7 @@
     const next = document.querySelector("#next-month");
     const today = document.querySelector("#today-button");
     const dateInput = document.querySelector("#calendar-date");
+    const birthInput = document.querySelector("#birth-moon-date");
     const grid = document.querySelector("#calendar-grid");
 
     previous.addEventListener("click", () => shiftMonth(-1));
@@ -303,6 +458,17 @@
         setSelectedDate(parsed, true);
       }
     });
+    if (birthInput) {
+      if (state.birthDate) {
+        birthInput.value = formatDateInput(state.birthDate);
+      }
+      birthInput.addEventListener("change", () => {
+        const parsed = parseDateInput(birthInput.value);
+        state.birthDate = parsed ? stripTime(parsed) : null;
+        storeBirthDate(state.birthDate);
+        renderSelectedDate();
+      });
+    }
     grid.addEventListener("click", (event) => {
       const button = event.target.closest(".calendar-day");
       if (!button) {
@@ -352,16 +518,18 @@
     const commonSymbolList = document.querySelector("#common-symbol-list");
     const solarCycleList = document.querySelector("#solar-cycle-list");
     const lunarCycleList = document.querySelector("#lunar-cycle-list");
+    const birthMoonReading = document.querySelector("#birth-moon-reading");
 
     dateInput.value = formatDateInput(state.selectedDate);
     title.textContent = `${info.mainLabel}, ${info.yearLabel}`;
     detail.textContent = `${FULL_DATE_FORMAT.format(state.selectedDate)} is day ${info.dayOfYear + 1} of a ${info.daysInYear}-day transformation year.`;
     houseMetric.textContent = info.house.fullLabel;
     pulseMetric.textContent = `Tone ${info.pulse.tone} ${info.pulse.toneName}, ${info.pulse.sign}`;
-    moonMetric.textContent = `Gate ${info.moon.day}, ${info.moon.phase}`;
+    moonMetric.textContent = `Gate ${info.moon.day}, ${moonGateSymbol(info.moon.day).name}, ${info.moon.phase}`;
     yearMetric.textContent = info.yearCycle;
     renderCommonSymbols(commonSymbolList, info);
     renderCycleLayers(solarCycleList, lunarCycleList, info);
+    renderBirthMoonReading(birthMoonReading, info);
 
     holidays.replaceChildren();
     if (info.holidays.length === 0) {
@@ -412,13 +580,133 @@
     if (lunarTarget) {
       renderLayerList(lunarTarget, [
         ["Lunation", info.lunar.lunationLabel, "The counted moon cycle from the founding epoch."],
-        ["Moon Gate", `Gate ${info.moon.day} of 30`, "The lunar day used for inner practice."],
+        ["Moon Gate", `Gate ${info.moon.day} of 30: ${moonGateSymbol(info.moon.day).name}`, "The lunar day used for inner practice."],
         ["Lunar Watch", `${info.lunar.watch.name}, day ${info.lunar.watch.day}`, info.lunar.watch.note],
         ["Moon Phase", info.moon.phase, "The visible face of the moon cycle."],
         ["Lunar Tide", info.lunar.tide.name, info.lunar.tide.note]
       ]);
     }
   }
+  function renderBirthMoonReading(target, selectedInfo) {
+    if (!target) {
+      return;
+    }
+
+    target.replaceChildren();
+    const birthInput = document.querySelector("#birth-moon-date");
+    if (birthInput) {
+      birthInput.value = state.birthDate ? formatDateInput(state.birthDate) : "";
+    }
+
+    if (!state.birthDate) {
+      const empty = document.createElement("p");
+      empty.className = "empty-reading";
+      empty.textContent = "Choose a birth date to reveal the core moon symbol, daily advanced meaning, and self-question.";
+      target.append(empty);
+      return;
+    }
+
+    const birthInfo = transformFromDate(state.birthDate);
+    const core = moonGateSymbol(birthInfo.moon.day);
+    const daily = moonGateSymbol(selectedInfo.moon.day);
+    const relation = birthMoonRelation(birthInfo.moon.day, selectedInfo.moon.day);
+
+    appendBirthMoonRow(
+      target,
+      "Core symbol",
+      `Gate ${birthInfo.moon.day}: ${core.name}`,
+      `Born under ${birthInfo.moon.phase}, ${birthInfo.lunar.watch.name}. ${core.advanced}`
+    );
+    appendBirthMoonRow(
+      target,
+      "Daily moon contact",
+      `Gate ${selectedInfo.moon.day}: ${daily.name} - ${relation.name}`,
+      `${relation.meaning} ${daily.advanced}`
+    );
+    appendBirthMoonRow(
+      target,
+      "Self-question",
+      relation.question,
+      daily.question,
+      "self-question"
+    );
+  }
+
+  function appendBirthMoonRow(target, label, value, note, extraClass = "") {
+    const row = document.createElement("div");
+    const strong = document.createElement("strong");
+    const span = document.createElement("span");
+    const em = document.createElement("em");
+    row.className = `birth-moon-row ${extraClass}`.trim();
+    strong.textContent = label;
+    span.textContent = value;
+    em.textContent = note;
+    row.append(strong, span, em);
+    target.append(row);
+  }
+
+  function moonGateSymbol(day) {
+    return MOON_GATE_SYMBOLS[positiveModulo(day - 1, MOON_GATE_SYMBOLS.length)];
+  }
+
+  function birthMoonRelation(coreDay, dailyDay) {
+    const offset = positiveModulo(dailyDay - coreDay, 30);
+    if (offset === 0) {
+      return {
+        name: "Core return",
+        meaning: "The daily gate returns directly to the birth moon core; identity, habit, and private intention are close to the surface.",
+        question: "How can I honor my core pattern without being trapped by it?"
+      };
+    }
+    if (offset <= 3) {
+      return {
+        name: "Kindling contact",
+        meaning: "The day activates the first movement after the core symbol; begin gently and protect the young form of the work.",
+        question: "What small beginning follows naturally from my birth moon core?"
+      };
+    }
+    if (offset <= 7) {
+      return {
+        name: "Testing contact",
+        meaning: "The day tests the core symbol through pressure, schedule, and honest measure.",
+        question: "Where does my core symbol need structure instead of mood?"
+      };
+    }
+    if (offset <= 14) {
+      return {
+        name: "Rising contact",
+        meaning: "The day draws the core symbol outward into speech, relationship, learning, and visible practice.",
+        question: "How should my inner symbol become visible without becoming performance?"
+      };
+    }
+    if (offset === 15) {
+      return {
+        name: "Mirror contact",
+        meaning: "The day stands opposite the core symbol; what is hidden in the birth pattern asks to be witnessed by contrast.",
+        question: "What opposite truth balances my usual way of changing?"
+      };
+    }
+    if (offset <= 22) {
+      return {
+        name: "Integration contact",
+        meaning: "The day asks the core symbol to release control and turn experience into usable wisdom.",
+        question: "What can I integrate now that I no longer need to defend?"
+      };
+    }
+    if (offset <= 28) {
+      return {
+        name: "Release contact",
+        meaning: "The day helps the core symbol simplify, complete, forgive, and clear space before renewal.",
+        question: "What does my core symbol need to release so the next vow can breathe?"
+      };
+    }
+    return {
+      name: "Dark gate contact",
+      meaning: "The day brings the core symbol to its threshold of rest; renewal is near but should not be forced.",
+      question: "Where should I rest before beginning again?"
+    };
+  }
+
 
   function renderLayerList(target, rows) {
     target.replaceChildren();
@@ -893,6 +1181,28 @@
     const day = String(date.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   }
+  function readStoredBirthDate() {
+    try {
+      const stored = window.localStorage?.getItem("transformationBirthMoonDate");
+      const parsed = parseDateInput(stored || "");
+      return parsed ? stripTime(parsed) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function storeBirthDate(date) {
+    try {
+      if (date) {
+        window.localStorage?.setItem("transformationBirthMoonDate", formatDateInput(date));
+      } else {
+        window.localStorage?.removeItem("transformationBirthMoonDate");
+      }
+    } catch (error) {
+      // Local storage is optional; the reading still works for the current page session.
+    }
+  }
+
 
   function parseDateInput(value) {
     if (!value) {
@@ -913,16 +1223,36 @@
     return ((value % divisor) + divisor) % divisor;
   }
 
+  const PSEUDONYM_GIVEN_NAMES = [
+    "Ari", "Bryn", "Cai", "Dara", "Eli", "Ira", "Jalen", "Kira", "Lior", "Mara", "Nico", "Orin",
+    "Pax", "Rian", "Sage", "Tala", "Uma", "Vera", "Wren", "Zion"
+  ];
+  const PSEUDONYM_FAMILY_NAMES = [
+    "Ash", "Bright", "Cedar", "Dawn", "Ember", "Field", "Harbor", "Hearth", "Lantern", "Moon",
+    "North", "River", "Rowan", "Sol", "Stone", "Vale", "Vow", "West", "Willow", "Witness"
+  ];
+
   function initJoinForm() {
     const form = document.querySelector("#join-form");
     const status = document.querySelector("#form-status");
     const emailLink = document.querySelector("#email-link");
+    const pseudonymButton = document.querySelector("#assigned-pseudonym-refresh");
     const submitButton = form?.querySelector("button[type='submit']");
     const endpoint = form?.dataset.registrationEndpoint || "";
+    const registrationKind = form?.dataset.registrationKind || "membership";
+    const storageKey = "transformation-membership-signup";
     const fields = {
       name: document.querySelector("#name"),
       email: document.querySelector("#email"),
+      emailCode: document.querySelector("#email-code"),
+      phone: document.querySelector("#phone"),
+      phoneCode: document.querySelector("#phone-code"),
+      preferredName: document.querySelector("#preferred-name"),
+      assignedPseudonym: document.querySelector("#assigned-pseudonym"),
+      membershipPath: document.querySelector("#membership-path"),
+      location: document.querySelector("#member-location"),
       transformation: document.querySelector("#transformation"),
+      serviceInterest: document.querySelector("#service-interest"),
       consent: document.querySelector("#registration-consent")
     };
 
@@ -930,46 +1260,74 @@
       return;
     }
 
-    loadSavedIntention(fields);
-    syncEmailLink(fields, emailLink);
+    const verification = createVerificationState(form, fields);
+
+    loadSavedIntention(fields, storageKey);
+    ensureAssignedPseudonym(fields);
+    resetVerification(verification.email, "A code is required before signup.");
+    resetVerification(verification.phone, "A code is required before signup.");
+    syncEmailLink(fields, emailLink, verification);
+
+    pseudonymButton?.addEventListener("click", () => {
+      fields.assignedPseudonym.value = createMemberPseudonym();
+      syncEmailLink(fields, emailLink, verification);
+      status.textContent = "Assigned member pseudonym updated.";
+    });
+
+    fields.email?.addEventListener("input", () => {
+      resetVerification(verification.email, "Email changed. Send a new code before signup.");
+      syncEmailLink(fields, emailLink, verification);
+    });
+    fields.phone?.addEventListener("input", () => {
+      resetVerification(verification.phone, "Phone changed. Send a new code before signup.");
+      syncEmailLink(fields, emailLink, verification);
+    });
+
+    verification.email.sendButton?.addEventListener("click", () => requestVerificationCode(verification.email, status));
+    verification.email.verifyButton?.addEventListener("click", () => confirmVerificationCode(verification.email, status, fields, emailLink, verification));
+    verification.phone.sendButton?.addEventListener("click", () => requestVerificationCode(verification.phone, status));
+    verification.phone.verifyButton?.addEventListener("click", () => confirmVerificationCode(verification.phone, status, fields, emailLink, verification));
 
     Object.values(fields).forEach((field) => {
-      field?.addEventListener("input", () => syncEmailLink(fields, emailLink));
-      field?.addEventListener("change", () => syncEmailLink(fields, emailLink));
+      if (field === fields.email || field === fields.phone) {
+        return;
+      }
+      field?.addEventListener("input", () => syncEmailLink(fields, emailLink, verification));
+      field?.addEventListener("change", () => syncEmailLink(fields, emailLink, verification));
     });
 
     emailLink.addEventListener("click", (event) => {
-      if (!validateRegistration(fields, status)) {
+      if (!validateRegistration(fields, status, verification)) {
         event.preventDefault();
         return;
       }
 
-      saveIntention(readIntention(fields), status);
-      syncEmailLink(fields, emailLink);
+      saveIntention(readIntention(fields, registrationKind, verification), status, storageKey);
+      syncEmailLink(fields, emailLink, verification);
     });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const intention = readIntention(fields);
+      const intention = readIntention(fields, registrationKind, verification);
 
-      if (!validateRegistration(fields, status)) {
+      if (!validateRegistration(fields, status, verification)) {
         return;
       }
 
-      saveIntention(intention, status);
-      syncEmailLink(fields, emailLink);
+      saveIntention(intention, status, storageKey);
+      syncEmailLink(fields, emailLink, verification);
 
       if (!endpoint) {
-        status.textContent = "Opening email registration draft.";
+        status.textContent = "Opening email membership signup draft.";
         window.location.href = emailLink.href;
         return;
       }
 
       if (submitButton) {
         submitButton.disabled = true;
-        submitButton.textContent = "Registering...";
+        submitButton.textContent = "Signing up...";
       }
-      status.textContent = "Submitting registration...";
+      status.textContent = "Submitting membership signup...";
 
       try {
         const response = await fetch(endpoint, {
@@ -985,64 +1343,296 @@
           throw new Error(`Registration failed with status ${response.status}`);
         }
 
-        status.textContent = "Registration sent. Check your email for the next step.";
+        status.textContent = "Membership signup sent. Check your email for the next step.";
         form.reset();
-        localStorage.removeItem("transformation-intention");
-        syncEmailLink(fields, emailLink);
+        localStorage.removeItem(storageKey);
+        ensureAssignedPseudonym(fields);
+        resetVerification(verification.email, "A code is required before signup.");
+        resetVerification(verification.phone, "A code is required before signup.");
+        syncEmailLink(fields, emailLink, verification);
       } catch (error) {
-        status.textContent = "Registration could not be sent. Use Email Registration instead.";
+        status.textContent = "Signup could not be sent. Use Email Signup instead.";
       } finally {
         if (submitButton) {
           submitButton.disabled = false;
-          submitButton.textContent = "Register";
+          submitButton.textContent = "Sign Up";
         }
       }
     });
   }
 
-  function validateRegistration(fields, status) {
-    if (!fields.name.value.trim() || !fields.email.value.trim() || !fields.transformation.value.trim()) {
-      status.textContent = "Name, email, and transformation are required.";
+  function createVerificationState(form, fields) {
+    return {
+      email: {
+        type: "email",
+        label: "Email",
+        valueField: fields.email,
+        codeField: fields.emailCode,
+        sendButton: document.querySelector("#email-code-button"),
+        verifyButton: document.querySelector("#email-verify-button"),
+        panel: document.querySelector('[data-verification-panel="email"]'),
+        status: document.querySelector("#email-verification-status"),
+        state: document.querySelector("#email-verification-state"),
+        requestEndpoint: form.dataset.emailCodeEndpoint || "",
+        verifyEndpoint: form.dataset.emailVerifyEndpoint || "",
+        verified: false,
+        verifiedValue: "",
+        demoCode: ""
+      },
+      phone: {
+        type: "phone",
+        label: "Phone",
+        valueField: fields.phone,
+        codeField: fields.phoneCode,
+        sendButton: document.querySelector("#phone-code-button"),
+        verifyButton: document.querySelector("#phone-verify-button"),
+        panel: document.querySelector('[data-verification-panel="phone"]'),
+        status: document.querySelector("#phone-verification-status"),
+        state: document.querySelector("#phone-verification-state"),
+        requestEndpoint: form.dataset.phoneCodeEndpoint || "",
+        verifyEndpoint: form.dataset.phoneVerifyEndpoint || "",
+        verified: false,
+        verifiedValue: "",
+        demoCode: ""
+      }
+    };
+  }
+
+  async function requestVerificationCode(channel, status) {
+    const value = channel.valueField?.value.trim() || "";
+    if (!validateVerificationTarget(channel, value)) {
+      return;
+    }
+
+    setVerificationBusy(channel, true);
+    try {
+      if (channel.requestEndpoint) {
+        const response = await fetch(channel.requestEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ type: channel.type, value })
+        });
+        if (!response.ok) {
+          throw new Error(`${channel.label} code request failed with status ${response.status}`);
+        }
+        channel.demoCode = "";
+        channel.status.textContent = `${channel.label} code sent. Enter the code to verify.`;
+        status.textContent = `${channel.label} verification code sent.`;
+      } else {
+        channel.demoCode = createVerificationCode();
+        channel.status.textContent = `Demo mode code: ${channel.demoCode}. Configure ${channel.type} endpoints for live delivery.`;
+        status.textContent = `${channel.label} demo verification code generated.`;
+      }
+      channel.verified = false;
+      channel.verifiedValue = "";
+      updateVerificationState(channel);
+    } catch (error) {
+      channel.status.textContent = `${channel.label} code could not be sent. Try again or check the endpoint.`;
+      status.textContent = `${channel.label} verification failed to start.`;
+    } finally {
+      setVerificationBusy(channel, false);
+    }
+  }
+
+  async function confirmVerificationCode(channel, status, fields, emailLink, verification) {
+    const value = channel.valueField?.value.trim() || "";
+    const code = channel.codeField?.value.trim() || "";
+    if (!validateVerificationTarget(channel, value)) {
+      return;
+    }
+    if (!/^\d{6}$/.test(code)) {
+      channel.status.textContent = "Enter the 6-digit verification code.";
+      return;
+    }
+
+    setVerificationBusy(channel, true);
+    try {
+      if (channel.verifyEndpoint) {
+        const response = await fetch(channel.verifyEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({ type: channel.type, value, code })
+        });
+        if (!response.ok) {
+          throw new Error(`${channel.label} code verification failed with status ${response.status}`);
+        }
+      } else if (code !== channel.demoCode) {
+        channel.status.textContent = "Code does not match the current demo code.";
+        return;
+      }
+
+      channel.verified = true;
+      channel.verifiedValue = value;
+      channel.status.textContent = `${channel.label} verified.`;
+      status.textContent = `${channel.label} verified.`;
+      updateVerificationState(channel);
+      syncEmailLink(fields, emailLink, verification);
+    } catch (error) {
+      channel.verified = false;
+      channel.verifiedValue = "";
+      channel.status.textContent = `${channel.label} could not be verified. Check the code and try again.`;
+      status.textContent = `${channel.label} verification failed.`;
+      updateVerificationState(channel);
+    } finally {
+      setVerificationBusy(channel, false);
+    }
+  }
+
+  function validateVerificationTarget(channel, value) {
+    if (!value) {
+      channel.status.textContent = `${channel.label} is required before requesting a code.`;
+      return false;
+    }
+    if (channel.type === "email" && !channel.valueField.checkValidity()) {
+      channel.status.textContent = "Enter a valid email address before requesting a code.";
+      return false;
+    }
+    if (channel.type === "phone" && value.replace(/\D/g, "").length < 7) {
+      channel.status.textContent = "Enter a valid phone number before requesting a code.";
+      return false;
+    }
+    return true;
+  }
+
+  function resetVerification(channel, message) {
+    if (!channel) {
+      return;
+    }
+    channel.verified = false;
+    channel.verifiedValue = "";
+    channel.demoCode = "";
+    if (channel.codeField) {
+      channel.codeField.value = "";
+    }
+    if (channel.status) {
+      channel.status.textContent = message;
+    }
+    updateVerificationState(channel);
+  }
+
+  function updateVerificationState(channel) {
+    if (channel.state) {
+      channel.state.textContent = channel.verified ? "Verified" : "Unverified";
+    }
+    channel.panel?.classList.toggle("is-verified", channel.verified);
+  }
+
+  function setVerificationBusy(channel, busy) {
+    if (channel.sendButton) {
+      channel.sendButton.disabled = busy;
+    }
+    if (channel.verifyButton) {
+      channel.verifyButton.disabled = busy;
+    }
+  }
+
+  function createVerificationCode() {
+    return String(randomInt(0, 999999)).padStart(6, "0");
+  }
+
+  function ensureAssignedPseudonym(fields) {
+    if (fields.assignedPseudonym && !fields.assignedPseudonym.value.trim()) {
+      fields.assignedPseudonym.value = createMemberPseudonym();
+    }
+  }
+
+  function createMemberPseudonym() {
+    const given = PSEUDONYM_GIVEN_NAMES[randomIndex(PSEUDONYM_GIVEN_NAMES.length)];
+    const family = PSEUDONYM_FAMILY_NAMES[randomIndex(PSEUDONYM_FAMILY_NAMES.length)];
+    const number = String(randomInt(100, 999));
+    return `${given} ${family} ${number}`;
+  }
+
+  function randomIndex(length) {
+    return randomInt(0, length - 1);
+  }
+
+  function randomInt(min, max) {
+    const range = max - min + 1;
+    const cryptoApi = window.crypto || window.msCrypto;
+    if (cryptoApi?.getRandomValues) {
+      const values = new Uint32Array(1);
+      cryptoApi.getRandomValues(values);
+      return min + (values[0] % range);
+    }
+    return min + Math.floor(Math.random() * range);
+  }
+
+  function validateRegistration(fields, status, verification) {
+    if (!fields.name.value.trim() || !fields.email.value.trim() || !fields.phone.value.trim() || !fields.assignedPseudonym.value.trim() || !fields.membershipPath.value || !fields.transformation.value.trim()) {
+      status.textContent = "Name, email, phone, assigned pseudonym, membership path, and first transformation are required.";
+      return false;
+    }
+
+    if (!verification.email.verified || verification.email.verifiedValue !== fields.email.value.trim()) {
+      status.textContent = "Verify your email before signing up.";
+      return false;
+    }
+
+    if (!verification.phone.verified || verification.phone.verifiedValue !== fields.phone.value.trim()) {
+      status.textContent = "Verify your phone number before signing up.";
       return false;
     }
 
     if (!fields.consent?.checked) {
-      status.textContent = "Consent is required before registration.";
+      status.textContent = "Consent is required before signup.";
       return false;
     }
 
     return true;
   }
 
-  function readIntention(fields) {
+  function readIntention(fields, registrationKind, verification) {
     return {
       name: fields.name.value.trim(),
       email: fields.email.value.trim(),
+      phone: fields.phone.value.trim(),
+      preferredName: fields.preferredName.value.trim(),
+      assignedPseudonym: fields.assignedPseudonym.value.trim(),
+      membershipPath: fields.membershipPath.value,
+      location: fields.location.value.trim(),
       transformation: fields.transformation.value.trim(),
+      serviceInterest: fields.serviceInterest.value.trim(),
+      emailVerified: Boolean(verification.email.verified),
+      phoneVerified: Boolean(verification.phone.verified),
+      verificationMode: verification.email.verifyEndpoint && verification.phone.verifyEndpoint ? "endpoint" : "local-demo-or-partial-endpoint",
       consent: Boolean(fields.consent?.checked),
-      source: "homepage-registration",
+      kind: registrationKind,
+      source: "homepage-membership-signup",
       savedAt: new Date().toISOString()
     };
   }
 
-  function saveIntention(intention, status) {
+  function saveIntention(intention, status, storageKey) {
     try {
-      localStorage.setItem("transformation-intention", JSON.stringify(intention));
+      localStorage.setItem(storageKey, JSON.stringify(intention));
     } catch (error) {
-      status.textContent = "Registration prepared. Browser storage is unavailable.";
+      status.textContent = "Signup prepared. Browser storage is unavailable.";
     }
   }
 
-  function loadSavedIntention(fields) {
+  function loadSavedIntention(fields, storageKey) {
     try {
-      const saved = localStorage.getItem("transformation-intention");
+      const saved = localStorage.getItem(storageKey) || localStorage.getItem("transformation-intention");
       if (!saved) {
         return;
       }
       const intention = JSON.parse(saved);
       fields.name.value = intention.name || "";
       fields.email.value = intention.email || "";
+      fields.phone.value = intention.phone || "";
+      fields.preferredName.value = intention.preferredName || "";
+      fields.assignedPseudonym.value = intention.assignedPseudonym || "";
+      fields.membershipPath.value = intention.membershipPath || "";
+      fields.location.value = intention.location || "";
       fields.transformation.value = intention.transformation || "";
+      fields.serviceInterest.value = intention.serviceInterest || "";
       if (fields.consent) {
         fields.consent.checked = Boolean(intention.consent);
       }
@@ -1051,18 +1641,29 @@
     }
   }
 
-  function syncEmailLink(fields, emailLink) {
-    const subject = encodeURIComponent("Founding Circle Registration");
+  function syncEmailLink(fields, emailLink, verification) {
+    const subject = encodeURIComponent("Membership Signup");
     const body = encodeURIComponent([
       `Name: ${fields.name.value.trim()}`,
       `Email: ${fields.email.value.trim()}`,
+      `Email verified: ${verification.email.verified ? "yes" : "no"}`,
+      `Phone: ${fields.phone.value.trim()}`,
+      `Phone verified: ${verification.phone.verified ? "yes" : "no"}`,
+      `Preferred public name: ${fields.preferredName.value.trim() || "not provided"}`,
+      `Assigned member pseudonym: ${fields.assignedPseudonym.value.trim() || "not assigned"}`,
+      `Membership path: ${fields.membershipPath.value || "not selected"}`,
+      `Local circle or city: ${fields.location.value.trim() || "not provided"}`,
       `Consent: ${fields.consent?.checked ? "yes" : "no"}`,
       "",
-      "Transformation:",
-      fields.transformation.value.trim()
+      "First transformation:",
+      fields.transformation.value.trim(),
+      "",
+      "Service interest:",
+      fields.serviceInterest.value.trim() || "not provided"
     ].join("\n"));
     emailLink.href = `mailto:founding-circle@example.com?subject=${subject}&body=${body}`;
   }
+
 
   function initCanvas() {
     const canvas = document.querySelector("#transformation-canvas");

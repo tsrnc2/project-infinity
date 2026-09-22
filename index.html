@@ -31,15 +31,19 @@
       <a href="#members">Members</a>
       <a href="#calendar">Calendar</a>
       <a href="#geometry">Geometry</a>
+      <a href="#holy-math">Holy Math</a>
+      <a href="#planet-pinwheel">Planets</a>
       <a href="symbols.html">Symbols</a>
       <a href="affirmations.html">Affirmations</a>
       <a href="discernment.html">Discernment</a>
+      <a href="gathering.html">Gathering</a>
       <a href="#texts">Texts</a>
       <a href="#ethics">Ethics</a>
       <a href="#faq">FAQ</a>
       <a href="podcast.html">Podcast</a>
       <a href="donate.html">Donate</a>
-      <a class="nav-join" href="#join">Join</a>
+      <a href="login.html">Login</a>
+      <a class="nav-join" href="#join">Sign Up</a>
     </nav>
   </header>
 
@@ -54,7 +58,7 @@
           honest reflection, creative action, and service, we can transform ourselves into better people.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#join">Enter the Founding Circle</a>
+          <a class="button primary" href="#join">Sign Up for Membership</a>
           <a class="button secondary" href="#ethics">Read the Covenant</a>
         </div>
       </div>
@@ -331,7 +335,7 @@
         <p class="eyebrow">Current council</p>
         <h2 id="council-title">Council leaders</h2>
         <p class="section-copy">
-          The founding council is listed by service role. Council authority is limited, reviewable,
+          The yearly leader and appointed council are listed by service role. Authority is limited, reviewable,
           and bound by consent, transparency, and the right of members to question or leave.
         </p>
       </div>
@@ -362,19 +366,20 @@
       <div class="council-election" aria-labelledby="council-selection-title">
         <div>
           <p class="eyebrow">Annual selection</p>
-          <h3 id="council-selection-title">Chosen by founding-member vote</h3>
+          <h3 id="council-selection-title">Leader chosen by all-member vote</h3>
           <p>
-            Council service is not inherited or permanent. Once each transformation year, the
-            founding members review every council seat, hear nominations, and vote on who should
-            carry each role for the next year.
+            Council service is not inherited or permanent. At the yearly gathering, all members
+            vote on one leader for the coming year. The elected leader then appoints the council
+            by service role, with each appointment recorded for public review.
           </p>
         </div>
         <ol class="council-election-list">
-          <li><strong>Nomination:</strong> any founding member may nominate a willing member, including themselves, for a named service role.</li>
+          <li><strong>Nomination:</strong> any member may nominate a willing member, including themselves, for yearly leader.</li>
           <li><strong>Consent:</strong> nominees must accept the duties, limits, and public review attached to the role before votes are counted.</li>
-          <li><strong>Vote:</strong> each founding member receives one vote per open council seat, and the result is recorded for the community.</li>
-          <li><strong>Term:</strong> elected council leaders serve one year and must stand for review before continuing.</li>
-          <li><strong>Recall:</strong> a leader who violates consent, transparency, or safety duties may be removed by a founding-member vote before the term ends.</li>
+          <li><strong>Vote:</strong> each member receives one vote for yearly leader, and the result is recorded for the community.</li>
+          <li><strong>Appointment:</strong> the elected leader appoints council keepers by service role, and each appointee must accept the role publicly.</li>
+          <li><strong>Term:</strong> the leader and appointed council serve one year and must stand for review before continuing.</li>
+          <li><strong>Recall:</strong> a leader or appointee who violates consent, transparency, or safety duties may be reviewed and removed by member vote before the term ends.</li>
         </ol>
       </div>
     </section>
@@ -388,6 +393,14 @@
           use publicly. Profiles are shared by consent, and members may keep private details private.
         </p>
       </div>
+
+      <figure class="member-group-photo">
+        <picture>
+          <source srcset="assets/images/founding-circle-hot-springs-group.webp" type="image/webp">
+          <img src="assets/images/founding-circle-hot-springs-group.png" alt="Founding circle members gathered at hot springs in ceremonial shoulder wraps">
+        </picture>
+        <figcaption>Founding circle solidarity portrait at the hot springs.</figcaption>
+      </figure>
 
       <div class="member-profile-grid">
         <article class="member-profile-card">
@@ -529,6 +542,16 @@
           <p>The lunar reading divides each lunation into month, watch, gate, phase, and tide.</p>
           <ul id="lunar-cycle-list"></ul>
         </article>
+        <article class="cycle-layer-card birth-moon-card">
+          <p class="panel-kicker">Personal moon</p>
+          <h3>Birth moon core</h3>
+          <p>Your birth moon gate becomes a core symbol. Compare it with the selected day to receive an advanced meaning and self-question.</p>
+          <label class="birth-moon-picker">
+            <span>Birth date</span>
+            <input id="birth-moon-date" type="date">
+          </label>
+          <div id="birth-moon-reading" class="birth-moon-reading" aria-live="polite"></div>
+        </article>
       </div>
 
 
@@ -550,10 +573,10 @@
       <div class="calendar-symbols" aria-labelledby="calendar-symbols-title">
         <div class="section-heading compact-heading">
           <p class="eyebrow">Symbol coverage</p>
-          <h3 id="calendar-symbols-title">Daily, weekly, monthly, and yearly symbols</h3>
+          <h3 id="calendar-symbols-title">Daily, weekly, monthly, yearly, and birth moon symbols</h3>
           <p class="section-copy">
             The calendar now keeps named symbols at every common scale of practice: the day, the week,
-            the civil month, and the transformation year.
+            the civil month, the transformation year, and the personal birth moon gate.
           </p>
         </div>
         <div class="symbol-scale-grid">
@@ -577,6 +600,11 @@
             <h4>60 Year Signs</h4>
             <p>Used to name the larger public temperament through polarity, element, and animal.</p>
           </article>
+          <article>
+            <span>Personal</span>
+            <h4>30 Birth Moon Gates</h4>
+            <p>Used as a core symbol for advanced daily meaning and self-examination questions.</p>
+          </article>
         </div>
       </div>
 
@@ -586,7 +614,7 @@
           <h3 id="supplement-title">The Book of Turning Days</h3>
           <p>
             This text explains the meaning of the calendar as a religious practice: each date is read
-            through a solar arc, solar path, solar house, sacred day sign, tone, lunar watch, moon gate, and year sign.
+            through a solar arc, solar path, solar house, sacred day sign, tone, lunar watch, moon gate, birth moon core, and year sign.
           </p>
         </div>
 
@@ -668,6 +696,116 @@
           <p>The thirty-one day symbols are used for journals, altars, meeting notes, and daily practice cards.</p>
         </div>
         <div id="day-symbols" class="seal-grid day-symbol-grid"></div>
+      </div>
+    </section>
+
+
+    <section id="holy-math" class="section holy-math-section" aria-labelledby="holy-math-title">
+      <div class="section-heading">
+        <p class="eyebrow">Holy mathematics</p>
+        <h2 id="holy-math-title">Numbers for Truth, Matter, and Choice</h2>
+        <p class="section-copy">
+          Holy math gives the religion a disciplined way to read number as symbol. Quantum physics
+          and cosmology inspire the language, but the numbers are devotional correspondences, not
+          scientific proof. Their purpose is humility, attention, and better action.
+        </p>
+      </div>
+
+      <div class="holy-number-grid" aria-label="Holy number correspondences">
+        <article class="holy-number-card">
+          <span class="holy-number">0</span>
+          <h3>The Void</h3>
+          <p>Potential before form. The practice is silence before reaction and the courage to begin without pretending to know everything.</p>
+        </article>
+        <article class="holy-number-card">
+          <span class="holy-number">1</span>
+          <h3>The Witness</h3>
+          <p>One observer, one truth, one chosen act. The practice is to see clearly before judging or controlling.</p>
+        </article>
+        <article class="holy-number-card">
+          <span class="holy-number">2</span>
+          <h3>Relation</h3>
+          <p>Self and other, wave and particle, question and answer. The practice is consent, because relation without freedom becomes force.</p>
+        </article>
+        <article class="holy-number-card">
+          <span class="holy-number">3</span>
+          <h3>Possibility</h3>
+          <p>Many possible futures narrow through attention and action. The practice is choosing the next honest path from uncertainty.</p>
+        </article>
+        <article class="holy-number-card">
+          <span class="holy-number">4</span>
+          <h3>Structure</h3>
+          <p>Four practices, four directions, and the remembered shape of spacetime. The practice is building change into daily structure.</p>
+        </article>
+        <article class="holy-number-card">
+          <span class="holy-number">8</span>
+          <h3>Entanglement</h3>
+          <p>Lives affect lives. This number remembers connection without claiming control, telepathy, or ownership over another soul.</p>
+        </article>
+        <article class="holy-number-card">
+          <span class="holy-number">13</span>
+          <h3>The Pulse</h3>
+          <p>The sacred tones mark repeated effort. Growth is not a single revelation; it is rhythm, return, and refinement.</p>
+        </article>
+        <article class="holy-number-card">
+          <span class="holy-number">∞</span>
+          <h3>Becoming</h3>
+          <p>The path has no final boast. Imperfection remains the doorway through which transformation continues.</p>
+        </article>
+      </div>
+
+      <div class="holy-formula-grid" aria-label="Devotional formulas">
+        <article class="holy-formula">
+          <strong>h</strong>
+          <span>The quantum of action becomes a vow: no action is too small to begin a transformation.</span>
+        </article>
+        <article class="holy-formula">
+          <strong>Δ</strong>
+          <span>Change and uncertainty become humility: name what is unknown before claiming certainty.</span>
+        </article>
+        <article class="holy-formula">
+          <strong>ψ</strong>
+          <span>The wave of possibility becomes self-examination: imagination must become ethical action.</span>
+        </article>
+        <article class="holy-formula">
+          <strong>Σ</strong>
+          <span>The sum becomes service: small repairs accumulate into a life other people can trust.</span>
+        </article>
+      </div>
+
+      <aside class="holy-math-boundary" aria-label="Scientific humility note">
+        <h3>The Boundary of Sacred Number</h3>
+        <p>
+          Holy math does not authorize medical claims, miracle claims, or false physics. A sacred
+          number is a lens for practice, not a replacement for experiment, peer review, or trained care.
+        </p>
+      </aside>
+    </section>
+
+
+    <section id="planet-pinwheel" class="section planet-pinwheel-section" aria-labelledby="planet-pinwheel-title">
+      <div class="section-heading planet-pinwheel-heading">
+        <p class="eyebrow">Planetary diagram</p>
+        <h2 id="planet-pinwheel-title">The Celestial Pinwheel</h2>
+        <p class="section-copy">
+          The planets are arranged as a turning spiral around the Sun: not to measure astronomy to scale,
+          but to show relation, motion, and the shared field in which every practice takes place.
+        </p>
+      </div>
+
+      <div class="planet-pinwheel-stage" data-planet-pinwheel>
+        <canvas id="planet-pinwheel-canvas" aria-label="3D planetary pinwheel with the Sun and eight planets"></canvas>
+      </div>
+
+      <div class="planet-key" aria-label="Planet order">
+        <span>Mercury</span>
+        <span>Venus</span>
+        <span>Earth</span>
+        <span>Mars</span>
+        <span>Jupiter</span>
+        <span>Saturn</span>
+        <span>Uranus</span>
+        <span>Neptune</span>
       </div>
     </section>
 
@@ -805,7 +943,11 @@
         </details>
         <details>
           <summary>How are leaders chosen?</summary>
-          <p>Keepers are selected for service roles, reviewed by peers, rotated when possible, and kept accountable through open records.</p>
+          <p>At the yearly gathering, all members vote for one leader for the next year. That leader appoints the council by service role, and both leader and appointees remain accountable through open records and review.</p>
+        </details>
+        <details>
+          <summary>Does holy math prove quantum physics?</summary>
+          <p>No. Holy math uses number as sacred symbolism and self-examination. It respects science by not pretending metaphor is experiment.</p>
         </details>
         <details>
           <summary>What makes a day holy?</summary>
@@ -816,14 +958,14 @@
 
     <section id="join" class="section join-section" aria-labelledby="join-title">
       <div class="join-copy">
-        <p class="eyebrow">Founding circle</p>
-        <h2 id="join-title">Begin with one transformation</h2>
+        <p class="eyebrow">Membership signup</p>
+        <h2 id="join-title">Become a member</h2>
         <p>
-          Register for the founding circle. The form can submit to a configured registration endpoint,
-          and the email draft remains available as a fallback.
+          Sign up to begin the member path. The form can submit to a configured registration endpoint,
+          saves a local draft, and keeps the email draft available as a fallback.
         </p>
       </div>
-      <form class="join-form" id="join-form" data-registration-endpoint="">
+      <form class="join-form" id="join-form" data-registration-endpoint="" data-registration-kind="membership" data-email-code-endpoint="" data-email-verify-endpoint="" data-phone-code-endpoint="" data-phone-verify-endpoint="">
         <label>
           Name
           <input id="name" name="name" autocomplete="name" placeholder="Your name" required>
@@ -832,17 +974,73 @@
           Email
           <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         </label>
+        <div class="verification-panel" data-verification-panel="email">
+          <div class="verification-heading">
+            <strong>Email verification</strong>
+            <span id="email-verification-state">Unverified</span>
+          </div>
+          <div class="verification-row">
+            <button class="button secondary verification-send" id="email-code-button" type="button">Send Email Code</button>
+            <input id="email-code" name="emailCode" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" placeholder="6-digit code" aria-label="Email verification code">
+            <button class="button secondary verification-confirm" id="email-verify-button" type="button">Verify Email</button>
+          </div>
+          <p class="verification-note" id="email-verification-status" role="status" aria-live="polite">A code is required before signup. Configure endpoints for live delivery.</p>
+        </div>
         <label>
-          Transformation
-          <textarea id="transformation" name="transformation" rows="5" placeholder="What are you ready to transform?" required></textarea>
+          Phone number
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 123 4567" required>
+        </label>
+        <div class="verification-panel" data-verification-panel="phone">
+          <div class="verification-heading">
+            <strong>Phone verification</strong>
+            <span id="phone-verification-state">Unverified</span>
+          </div>
+          <div class="verification-row">
+            <button class="button secondary verification-send" id="phone-code-button" type="button">Send Phone Code</button>
+            <input id="phone-code" name="phoneCode" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" placeholder="6-digit code" aria-label="Phone verification code">
+            <button class="button secondary verification-confirm" id="phone-verify-button" type="button">Verify Phone</button>
+          </div>
+          <p class="verification-note" id="phone-verification-status" role="status" aria-live="polite">A code is required before signup. Configure endpoints for live SMS delivery.</p>
+        </div>
+        <label>
+          Preferred public name
+          <input id="preferred-name" name="preferredName" autocomplete="nickname" placeholder="Optional">
+        </label>
+        <label class="assigned-pseudonym-field">
+          Assigned member pseudonym
+          <span class="assigned-pseudonym-control">
+            <input id="assigned-pseudonym" name="assignedPseudonym" autocomplete="off" readonly required>
+            <button class="button secondary pseudonym-refresh" id="assigned-pseudonym-refresh" type="button">New Name</button>
+          </span>
+        </label>
+        <label>
+          Membership path
+          <select id="membership-path" name="membershipPath" required>
+            <option value="">Choose a path</option>
+            <option value="Practitioner">Practitioner - begin daily practice</option>
+            <option value="Member">Member - join the covenant and service work</option>
+            <option value="Keeper Interest">Keeper interest - support a local circle</option>
+          </select>
+        </label>
+        <label>
+          Local circle or city
+          <input id="member-location" name="location" autocomplete="address-level2" placeholder="Optional">
+        </label>
+        <label>
+          First transformation
+          <textarea id="transformation" name="transformation" rows="4" placeholder="What are you ready to transform?" required></textarea>
+        </label>
+        <label>
+          Service interest
+          <textarea id="service-interest" name="serviceInterest" rows="3" placeholder="Optional: teaching, recovery support, meals, rides, art, records, accessibility, or another useful work"></textarea>
         </label>
         <label class="consent-check">
           <input id="registration-consent" name="consent" type="checkbox" required>
-          <span>I consent to be contacted about the founding circle and understand I can leave or unsubscribe at any time.</span>
+          <span>I consent to receive email and phone verification messages about membership, understand participation is voluntary, and understand I can leave or unsubscribe at any time. Message and data rates may apply.</span>
         </label>
         <div class="form-actions">
-          <button class="button primary" type="submit">Register</button>
-          <a class="button secondary" id="email-link" href="mailto:founding-circle@example.com">Email Registration</a>
+          <button class="button primary" type="submit">Sign Up</button>
+          <a class="button secondary" id="email-link" href="mailto:founding-circle@example.com">Email Signup</a>
         </div>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
@@ -858,15 +1056,18 @@
       <a href="#beliefs">Beliefs</a>
       <a href="#calendar">Calendar</a>
       <a href="#geometry">Geometry</a>
+      <a href="#planet-pinwheel">Planets</a>
       <a href="#members">Members</a>
       <a href="symbols.html">Symbols</a>
       <a href="affirmations.html">Affirmations</a>
       <a href="discernment.html">Discernment</a>
+      <a href="gathering.html">Gathering</a>
       <a href="#texts">Texts</a>
       <a href="#resources">Resources</a>
       <a href="podcast.html">Podcast</a>
       <a href="donate.html">Donate</a>
-      <a href="#join">Join</a>
+      <a href="login.html">Login</a>
+      <a href="#join">Sign Up</a>
     </nav>
     <p class="footer-note">This community does not replace professional medical, legal, financial, or emergency care.</p>
   </footer>
@@ -874,6 +1075,7 @@
   <script src="script.js"></script>
   <script src="supplement.js"></script>
   <script src="geometry.js"></script>
+  <script type="module" src="planet-pinwheel.js"></script>
   <script src="site.js"></script>
 </body>
 </html>
