@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="willpower.css">
   <link rel="stylesheet" href="calendar-cycles.css">
   <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="experience.css">
 </head>
 <body>
   <header class="topbar" aria-label="Site header">
@@ -27,44 +28,82 @@
       <a href="#beliefs">Beliefs</a>
       <a href="#practice">Practice</a>
       <a href="#rites">Rites</a>
-      <a href="#community">Community</a>
-      <a href="#members">Members</a>
-      <a href="#calendar">Calendar</a>
-      <a href="#geometry">Geometry</a>
-      <a href="#holy-math">Holy Math</a>
-      <a href="#planet-pinwheel">Planets</a>
+      <a href="almanac.html">Almanac</a>
       <a href="symbols.html">Symbols</a>
-      <a href="affirmations.html">Affirmations</a>
-      <a href="discernment.html">Discernment</a>
-      <a href="gathering.html">Gathering</a>
-      <a href="#texts">Texts</a>
-      <a href="#ethics">Ethics</a>
-      <a href="#faq">FAQ</a>
-      <a href="podcast.html">Podcast</a>
-      <a href="donate.html">Donate</a>
-      <a href="login.html">Login</a>
-      <a class="nav-join" href="#join">Sign Up</a>
+      <a href="#community">Community</a>
+      <a href="podcast.html">Listen</a>
+      <a href="login.html">Members</a>
+      <a class="nav-join" href="#join">Join</a>
     </nav>
   </header>
 
   <main id="home">
     <section class="hero" aria-labelledby="hero-title">
       <canvas id="transformation-canvas" aria-hidden="true"></canvas>
-      <div class="hero-content">
-        <p class="eyebrow">A voluntary path of renewal</p>
-        <h1 id="hero-title">Religion of Transformation</h1>
-        <p class="hero-copy">
-          A spiritual community built on the belief that through willpower, disciplined practice,
-          honest reflection, creative action, and service, we can transform ourselves into better people.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#join">Sign Up for Membership</a>
-          <a class="button secondary" href="#ethics">Read the Covenant</a>
+      <div class="hero-layout">
+        <div class="hero-content">
+          <p class="eyebrow">A living practice of deliberate change</p>
+          <h1 id="hero-title">Become, by practice.</h1>
+          <p class="hero-copy">
+            The Religion of Transformation is a voluntary spiritual path built around a simple claim:
+            change becomes sacred when it is chosen freely, practiced honestly, made visible through useful work,
+            and carried outward in service.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#practice">Explore the path</a>
+            <a class="button secondary" href="almanac.html">Open the Almanac</a>
+          </div>
+          <p class="hero-note">Witness what is. Refine what can change. Create what should exist. Serve beyond the self.</p>
+        </div>
+
+        <div class="hero-symbol" aria-label="The four-part transformation cycle: Witness, Refine, Create, Serve">
+          <div class="transformation-sigil" aria-hidden="true"></div>
+          <div class="orbit-label witness"><span>01</span><strong>Witness</strong></div>
+          <div class="orbit-label refine"><span>02</span><strong>Refine</strong></div>
+          <div class="orbit-label create"><span>03</span><strong>Create</strong></div>
+          <div class="orbit-label serve"><span>04</span><strong>Serve</strong></div>
         </div>
       </div>
-      <a class="scroll-cue" href="#practice" aria-label="Go to practices">
+      <a class="scroll-cue" href="#almanac-preview" aria-label="Explore the almanac">
         <span></span>
       </a>
+    </section>
+
+
+    <section id="almanac-preview" class="section almanac-intro" aria-labelledby="almanac-preview-title">
+      <div class="almanac-shell">
+        <div class="almanac-copy">
+          <p class="eyebrow">The living almanac</p>
+          <h2 id="almanac-preview-title">A pattern for the day, the season, and the work.</h2>
+          <p class="section-copy">
+            The Almanac gathers the calendar, rites, symbols, reflections, and observances into one practical guide.
+            It is designed to answer a useful question: what does the path ask me to practice now?
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="almanac.html">Enter the Almanac</a>
+            <a class="button secondary" href="#calendar">Open the Calendar</a>
+          </div>
+        </div>
+
+        <div class="almanac-grid" aria-label="Almanac guide">
+          <a class="almanac-card" href="#calendar">
+            <span>Daily</span>
+            <strong>Calendar &amp; active signs</strong>
+          </a>
+          <a class="almanac-card" href="#rites">
+            <span>Rhythm</span>
+            <strong>Rites &amp; observances</strong>
+          </a>
+          <a class="almanac-card" href="symbols.html">
+            <span>Language</span>
+            <strong>Symbols &amp; geometry</strong>
+          </a>
+          <a class="almanac-card" href="affirmations.html">
+            <span>Reflection</span>
+            <strong>Affirmations &amp; prompts</strong>
+          </a>
+        </div>
+      </div>
     </section>
 
     <section class="section willpower-section" aria-labelledby="willpower-title">
