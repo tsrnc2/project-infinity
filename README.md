@@ -2,6 +2,16 @@
 
 Project Infinity is a static website for the Religion of Transformation, centered on the belief that willpower and disciplined practice can transform people into better versions of themselves. It includes the public site, a custom Transformation Calendar with multi-part solar and lunar cycle readings, complete symbol system, supplementary religious text, sacred geometry symbols, holy mathematics, a 3D planetary pinwheel diagram, discernment guide, annual gathering page, podcast page, donation page, and ETH/BTC donation UI placeholders.
 
+
+## Current site experience
+
+The public site now uses a shared v3 experience layer:
+
+- `experience.css` provides the common visual shell and responsive presentation.
+- `almanac.html` is the first-class Almanac hub for the Transformation Calendar, rites, symbols, reflection, and seasonal observance.
+- The homepage entry experience is organized around `Witness → Refine → Create → Serve`.
+- The implementation and rollback model are documented in `docs/site-experience-v3.md`.
+
 ## Preview
 
 Open `index.html` directly in a browser.
