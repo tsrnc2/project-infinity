@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Almanac — Religion of Transformation</title>
-  <meta name="description" content="The Religion of Transformation Almanac: daily practice, sacred calendar, seasonal rites, symbols, reflection, and communal observances.">
+  <title>Today — The Almanac | Religion of Transformation</title>
+  <meta name="description" content="Today's Religion of Transformation practice: solar station, lunar gate, planetary relationships, daily seal, rite, reflection, and concrete action.">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="page.css">
   <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="experience.css">
+  <link rel="stylesheet" href="almanac-daily.css">
 </head>
 <body>
   <header class="topbar" aria-label="Site header">
@@ -33,110 +34,158 @@
     </nav>
   </header>
 
-  <main class="almanac-page">
-    <header class="almanac-page-header">
-      <p class="eyebrow">A living guide to the turning</p>
-      <h1>The Almanac</h1>
-      <p>
-        A single doorway into the rhythms of Transformation: what to practice today,
-        how the year turns, which symbols are active, when rites are observed, and
-        where reflection becomes action.
-      </p>
-    </header>
+  <main class="almanac-page daily-almanac">
+    <div class="daily-shell">
+      <section class="daily-command" aria-labelledby="daily-title">
+        <div class="daily-command-copy">
+          <p class="eyebrow">The living Almanac · Today at the Turning</p>
+          <h1 id="daily-title">Practice the day you are in.</h1>
+          <p id="daily-gregorian">Loading today's date…</p>
+          <div class="daily-date-controls" aria-label="Choose Almanac date">
+            <button id="almanac-prev" type="button" aria-label="Previous day">← Previous</button>
+            <input id="almanac-date" type="date" aria-label="Almanac date">
+            <button id="almanac-today" type="button">Today</button>
+            <button id="almanac-next" type="button" aria-label="Next day">Next →</button>
+          </div>
+        </div>
+        <figure class="daily-seal-panel" aria-labelledby="seal-caption">
+          <div id="daily-seal"></div>
+          <figcaption id="seal-caption" class="sr-only">Generated daily sky seal.</figcaption>
+        </figure>
+      </section>
 
-    <section class="almanac-hub" aria-label="Almanac sections">
-      <article class="almanac-feature wide">
-        <div>
-          <span>Daily turning</span>
-          <h2>Begin with today.</h2>
+      <section class="daily-state-grid" aria-label="Daily Almanac state">
+        <article class="daily-state">
+          <span>Practice stage</span>
+          <strong id="daily-stage">—</strong>
+          <small id="daily-stage-verb">—</small>
+        </article>
+        <article class="daily-state">
+          <span>Solar station</span>
+          <strong id="daily-station">—</strong>
+          <small>The Sun's approximate geocentric ecliptic position sets the four-part practice cycle.</small>
+        </article>
+        <article class="daily-state">
+          <span>Lunar gate</span>
+          <strong id="daily-moon">—</strong>
+          <small>The gate follows the angular separation of Moon and Sun.</small>
+        </article>
+        <article class="daily-state">
+          <span>Concordance</span>
+          <strong id="daily-concordance">—</strong>
+          <small id="daily-concordance-detail">—</small>
+        </article>
+      </section>
+
+      <section class="daily-practice-panel" aria-labelledby="practice-focus-title">
+        <div class="practice-wheel" aria-label="Witness Refine Create Serve cycle">
+          <article data-practice-stage="Witness"><span>01 · See</span><strong>Witness</strong></article>
+          <article data-practice-stage="Refine"><span>02 · Correct</span><strong>Refine</strong></article>
+          <article data-practice-stage="Create"><span>03 · Make</span><strong>Create</strong></article>
+          <article data-practice-stage="Serve"><span>04 · Give</span><strong>Serve</strong></article>
+        </div>
+
+        <article class="practice-focus">
+          <span class="daily-panel-kicker">Today's practice</span>
+          <h2 id="practice-focus-title">What the day asks of you</h2>
+          <p id="practice-copy">Loading daily practice…</p>
+          <div class="practice-instruction-grid">
+            <article>
+              <strong>Do one thing</strong>
+              <p id="practice-action">—</p>
+            </article>
+            <article>
+              <strong>Ask one question</strong>
+              <p id="practice-question">—</p>
+            </article>
+            <article>
+              <strong>Rite</strong>
+              <p id="practice-rite">—</p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <section class="sky-section" aria-labelledby="sky-title">
+        <div class="sky-heading">
+          <div>
+            <span class="daily-panel-kicker">Measured sky layer</span>
+            <h2 id="sky-title">The bodies relative to one another</h2>
+          </div>
           <p>
-            Open the Transformation Calendar for the selected day's house, sacred sign,
-            pulse, lunar reading, holidays, and practical reflection prompts.
+            The positions below are date-level astronomical approximations. Transformation meanings are devotional interpretations of measured geometry, not claims of planetary causation.
           </p>
         </div>
-        <a class="button primary" href="index.html#calendar">Open today's calendar</a>
-      </article>
 
-      <article class="almanac-feature">
-        <div>
-          <span>Practice cycle</span>
-          <h2>Witness → Refine → Create → Serve</h2>
-          <p>
-            The four practices form the repeating human-scale cycle of the religion.
-            Use them as a sequence or return to the stage that needs work.
-          </p>
+        <div class="sky-measures" aria-label="Core astronomical measurements">
+          <article><span>Sun longitude</span><strong id="solar-longitude">—</strong></article>
+          <article><span>Moon longitude</span><strong id="moon-longitude">—</strong></article>
+          <article><span>Moon–Sun elongation</span><strong id="moon-elongation">—</strong></article>
+          <article><span>Approx. lunar illumination</span><strong id="moon-illumination">—</strong></article>
         </div>
-        <a class="button secondary" href="index.html#practice">Study the practices</a>
-      </article>
 
-      <article class="almanac-feature">
-        <div>
-          <span>Ritual calendar</span>
-          <h2>Daily, weekly, monthly, seasonal.</h2>
-          <p>
-            Rites are organized by cadence so observance stays connected to concrete
-            reflection, repair, creation, and service rather than spectacle alone.
-          </p>
+        <div class="sky-columns">
+          <div>
+            <span class="daily-panel-kicker">Ecliptic longitudes</span>
+            <ul id="planet-longitudes" class="planet-longitudes"></ul>
+          </div>
+          <div>
+            <span class="daily-panel-kicker">Nearest major relationships</span>
+            <div id="relationship-list" class="relationship-list"></div>
+          </div>
         </div>
-        <a class="button secondary" href="index.html#rites">Explore the rites</a>
-      </article>
 
-      <article class="almanac-feature small">
-        <div>
-          <span>Symbol system</span>
-          <h2>Read the signs.</h2>
-          <p>Learn the visual vocabulary used across the calendar, geometry, and rites.</p>
+        <p class="model-note">
+          <strong id="sky-model-date">Astronomy model loading…</strong><br>
+          Planetary positions use JPL's lower-accuracy 1800–2050 Keplerian elements. The Moon uses a compact low-precision longitude series. Use JPL Horizons or equivalent ephemerides for high-precision scientific work, navigation, or eclipse prediction.
+        </p>
+      </section>
+
+      <section class="daily-journal" aria-labelledby="journal-title">
+        <div class="daily-journal-layout">
+          <div>
+            <span class="daily-panel-kicker">Carry it with you</span>
+            <h2 id="journal-title">Today's journal card</h2>
+            <p id="daily-journal-text">Loading journal card…</p>
+          </div>
+          <div>
+            <button id="copy-daily-practice" class="button secondary" type="button">Copy today's practice</button>
+            <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+          </div>
         </div>
-        <a class="button secondary" href="symbols.html">Open symbols</a>
-      </article>
+      </section>
 
-      <article class="almanac-feature small">
-        <div>
-          <span>Reflection</span>
-          <h2>Speak the day aloud.</h2>
-          <p>Use the affirmation library as a starting point for intentional daily practice.</p>
+      <section class="daily-reference" aria-labelledby="reference-title">
+        <span class="daily-panel-kicker">Go deeper after the daily practice</span>
+        <h2 id="reference-title">Reference, doctrine, and history</h2>
+        <div class="reference-grid">
+          <a href="symbols.html">
+            <span>Language</span>
+            <strong>Symbol System</strong>
+            <p>Study the visual vocabulary and the transition toward the Turning Script.</p>
+          </a>
+          <a href="index.html#rites">
+            <span>Practice</span>
+            <strong>Rites</strong>
+            <p>Move from the daily instruction into weekly, monthly, seasonal, and passage rites.</p>
+          </a>
+          <a href="discernment.html">
+            <span>Testing</span>
+            <strong>Discernment</strong>
+            <p>Separate evidence, interpretation, conviction, and action.</p>
+          </a>
+          <a href="index.html#calendar">
+            <span>Archive</span>
+            <strong>Founding Calendar</strong>
+            <p>Review the earlier 365/260-day system preserved during astronomical-calendar migration.</p>
+          </a>
         </div>
-        <a class="button secondary" href="affirmations.html">Open affirmations</a>
-      </article>
+      </section>
 
-      <article class="almanac-feature small">
-        <div>
-          <span>Discernment</span>
-          <h2>Test what you believe.</h2>
-          <p>Use the discernment guide when conviction, uncertainty, evidence, and action collide.</p>
-        </div>
-        <a class="button secondary" href="discernment.html">Open discernment</a>
-      </article>
-
-      <article class="almanac-feature">
-        <div>
-          <span>Seasonal gathering</span>
-          <h2>Move from private practice to shared renewal.</h2>
-          <p>
-            The annual gathering and Turning Games provide a communal rhythm for service,
-            reflection, celebration, leadership, and recommitment.
-          </p>
-        </div>
-        <a class="button secondary" href="gathering.html">View the gathering</a>
-      </article>
-
-      <article class="almanac-feature">
-        <div>
-          <span>Teachings &amp; listening</span>
-          <h2>Carry the practice with you.</h2>
-          <p>
-            Long-form teachings, stories, and guided material can be followed through the
-            site's podcast and public text library.
-          </p>
-        </div>
-        <a class="button secondary" href="podcast.html">Listen to the podcast</a>
-      </article>
-    </section>
-
-    <aside class="almanac-note">
-      The calendar and symbol system are devotional frameworks for reflection and practice.
-      They do not claim scientific prediction, supernatural certainty, or medical authority.
-    </aside>
+      <aside class="almanac-note">
+        The astronomical measurements organize the devotional calendar; they do not predict personal events or determine human choices. The religious meanings are intentionally separate from the physical measurements.
+      </aside>
+    </div>
   </main>
 
   <footer class="footer">
@@ -145,5 +194,6 @@
   </footer>
 
   <script src="site.js"></script>
+  <script src="almanac-daily.js"></script>
 </body>
 </html>
