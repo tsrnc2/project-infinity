@@ -4,6 +4,14 @@
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector("#primary-nav");
 
+  if (nav) {
+    const todayLink = nav.querySelector('a[href="almanac.html"]');
+    if (todayLink) {
+      todayLink.textContent = "Today";
+      nav.prepend(todayLink);
+    }
+  }
+
   if (!toggle || !nav) {
     return;
   }
